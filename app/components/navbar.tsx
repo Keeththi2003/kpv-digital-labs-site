@@ -171,16 +171,15 @@ export function Navbar() {
 
               {/* Desktop CTA Button */}
               <div className="hidden md:block">
-                <button
-                  className="relative bg-[#ff3131] hover:bg-orange-600 text-white font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group"
-                  onClick={() => scrollToSection("/contact")}
-                >
-                  <span className="mr-2">Let&apos;s Talk</span>
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </button>
+                <Link href={"/contact"}>
+                  <button className="relative bg-[#ff3131] hover:bg-orange-600 text-white font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group">
+                    <span className="mr-2">Let&apos;s Talk</span>
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </button>
+                </Link>
               </div>
 
               {/* Mobile Menu Button */}
@@ -266,23 +265,24 @@ export function Navbar() {
                   )
                 )}
                 <div className="h-px bg-white/10 my-2" />
-                <button
-                  className={`relative bg-orange-600 hover:bg-orange-500 text-white font-medium px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group transform ${
-                    isOpen ? "animate-mobile-menu-item" : ""
-                  }`}
-                  style={{
-                    animationDelay: isOpen
-                      ? `${navigation.length * 80 + 150}ms`
-                      : "0ms",
-                  }}
-                  onClick={() => scrollToSection("/contact")}
-                >
-                  <span className="mr-2">Let&apos;s Talk</span>
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </button>
+                <Link href={"/contact"}>
+                  <button
+                    className={`relative bg-orange-600 hover:bg-orange-500 text-white font-medium px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group transform ${
+                      isOpen ? "animate-mobile-menu-item" : ""
+                    }`}
+                    style={{
+                      animationDelay: isOpen
+                        ? `${navigation.length * 80 + 150}ms`
+                        : "0ms",
+                    }}
+                  >
+                    <span className="mr-2">Let&apos;s Talk</span>
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
