@@ -18,12 +18,12 @@ interface FooterSection {
 
 const footerLinks: FooterSection[] = [
   {
-    label: "Product",
+    label: "Get To Know",
     links: [
-      { title: "Features", href: "/features" },
-      { title: "AI Team", href: "/ai-team" },
-      { title: "ROI Calculator", href: "/roi-calculator" },
-      { title: "Integration", href: "/integration" },
+      { title: "Home", href: "/" },
+      { title: "How We Work", href: "/work" },
+      { title: "Services", href: "/services" },
+      { title: "Resources", href: "/resources" },
     ],
   },
   {
@@ -35,15 +35,7 @@ const footerLinks: FooterSection[] = [
       { title: "Terms of Service", href: "/terms" },
     ],
   },
-  {
-    label: "Resources",
-    links: [
-      { title: "Blog", href: "/blog" },
-      { title: "Case Studies", href: "/case-studies" },
-      { title: "Documentation", href: "/docs" },
-      { title: "Support", href: "/support" },
-    ],
-  },
+  
   {
     label: "Social Links",
     links: [
@@ -68,7 +60,7 @@ export function Footer() {
           </div>
         </AnimatedContainer>
 
-        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4 xl:col-span-2 xl:mt-0">
+        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-3 xl:col-span-2 xl:mt-0">
           {footerLinks.map((section, index) => (
             <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
               <div className="mb-10 md:mb-0">
