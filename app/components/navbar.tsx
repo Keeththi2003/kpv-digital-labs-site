@@ -137,11 +137,11 @@ export function Navbar() {
               >
                 <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
                   <Image
-                    src="/images/cliste-logo.png"
-                    alt="Cliste"
-                    width={40}
-                    height={40}
-                    className="w-full h-full object-contain"
+                    src="/KPV.svg"
+                    alt="KPV"
+                    width={60}
+                    height={60}
+                    className="w-full h-full object-fit"
                   />
                 </div>
               </Link>
@@ -277,7 +277,7 @@ export function Navbar() {
                   }}
                   onClick={() => scrollToSection("#contact")}
                 >
-                  <span className="mr-2">Get Started</span>
+                  <span className="mr-2">Let&apos;s Talk</span>
                   <ArrowRight
                     size={16}
                     className="transition-transform duration-300 group-hover:translate-x-1"
