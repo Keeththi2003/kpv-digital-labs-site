@@ -35,8 +35,8 @@ const Play = () => (
 
 export function HeroSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 relative">
-      <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-hero">
+    <section className="flex items-center justify-center px-4 pt-24 relative">
+      <div className="max-w-4xl  mx-auto text-center relative z-10 animate-fade-in-hero">
         {/* Badge */}
         <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 mt-12 animate-fade-in-badge">
           <span className="w-2 h-2 bg-white/60 rounded-full mr-2 animate-pulse"></span>
@@ -45,10 +45,11 @@ export function HeroSection() {
 
         {/* Main Heading */}
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-balance mb-6 animate-fade-in-heading">
-          <span className="text-foreground">Elevate your</span>
+          <span className="text-foreground">Elevate your </span>
+                      <span className="text-foreground">Business</span>
+
           <br />
           <span className="inline-flex items-center justify-center flex-wrap gap-2 mt-4 sm:mt-6 md:mt-8">
-            <span className="text-foreground">Business</span>
             <RotatingText
               texts={[
                 "Growth",
@@ -77,72 +78,18 @@ export function HeroSection() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-16 animate-fade-in-buttons">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 sm:mb-12 animate-fade-in-buttons">
           <button className="bg-white text-black w-fit flex items-center rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden">
             Start Your Project Today
             <ArrowRight />
           </button>
+          <button className="bg-white text-black w-fit flex items-center rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden">
+            Let's Talk <Play />
+          </button>
         </div>
 
-        {/* Trust Indicators */}
-        <div className="text-center px-4 hidden sm:block overflow-hidden animate-fade-in-trust">
-          <p className="text-sm text-white mb-6">
-            We Are Proficient in Your Tech Stack
-          </p>
-          <div className="relative overflow-hidden w-full max-w-4xl mx-auto">
-            <div className="flex items-center gap-8 hover:opacity-80 transition-all duration-500 animate-slide-left">
-              <div className="flex items-center gap-8 whitespace-nowrap text-6xl">
-                <i className="devicon-react-original colored"></i>
+       
 
-                <i className="devicon-nextjs-plain"></i>
-                <i className="devicon-tailwindcss-plain colored"></i>
-                <i className="devicon-nodejs-plain colored"></i>
-                <i className="devicon-typescript-plain colored"></i>
-              </div>
-              {/* Duplicate for seamless loop */}
-              <div className="flex items-center gap-8 whitespace-nowrap text-6xl">
-                <i className="devicon-react-original colored"></i>
-
-                <i className="devicon-nextjs-plain"></i>
-                <i className="devicon-tailwindcss-plain colored"></i>
-                <i className="devicon-nodejs-plain colored"></i>
-                <i className="devicon-typescript-plain colored"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Trust Indicators */}
-        <div className="text-center px-4 mb-8 sm:hidden overflow-hidden animate-fade-in-trust">
-          <p className="text-sm text-white mb-6">
-            Trusted by innovative companies worldwide
-          </p>
-          <div className="relative overflow-hidden w-full max-w-sm mx-auto">
-            {/* Left blur fade */}
-            <div className="absolute left-0 top-0 w-8 h-full bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
-            {/* Right blur fade */}
-            <div className="absolute right-0 top-0 w-8 h-full bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
-            <div className="flex items-center gap-6 opacity-60 animate-slide-left-mobile">
-              <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="text-sm font-semibold">TechCorp</div>
-                <div className="text-sm font-semibold">InnovateLab</div>
-                <div className="text-sm font-semibold">FutureScale</div>
-                <div className="text-sm font-semibold">AutoFlow</div>
-                <div className="text-sm font-semibold">eScale</div>
-                <div className="text-sm font-semibold">DataFlow</div>
-              </div>
-              {/* Duplicate for seamless loop */}
-              <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="text-sm font-semibold">TechCorp</div>
-                <div className="text-sm font-semibold">InnovateLab</div>
-                <div className="text-sm font-semibold">FutureScale</div>
-                <div className="text-sm font-semibold">AutoFlow</div>
-                <div className="text-sm font-semibold">eScale</div>
-                <div className="text-sm font-semibold">DataFlow</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
