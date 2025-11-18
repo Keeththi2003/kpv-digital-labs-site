@@ -37,22 +37,22 @@ export function TechStack() {
   return (
     <section className="flex items-center justify-center px-4 py-10 relative">
       <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-hero">
-        
         <div
-          className={`text-center mb-8 sm:mb-16 transition-all duration-1000 opacity-100translate-y-8
+          className={`text-center mb-8 sm:mb-16 transition-all duration-1000 opacity-100 translate-y-8
           `}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-balance mb-4 sm:mb-6">
-                     <span>  We Are Proficient in Your Tech Stack</span>
-
+            <span> We Are Proficient in Your Tech Stack</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mx-auto font-light leading-relaxed">
-            Building scalable, maintainable applications with React, Next.js, TypeScript, Node.js, Java, .NET, and Tailwind — fast, reliable, and production-ready.
+            Building scalable, maintainable applications with React, Next.js,
+            TypeScript, Node.js, Java, .NET, and Tailwind — fast, reliable, and
+            production-ready.
           </p>
         </div>
 
         {/* Trust Indicators */}
-        <div className="text-center px-4 hidden sm:block overflow-hidden animate-fade-in-trust">
+        <div className="text-center px-4 mb-12 hidden sm:block overflow-hidden animate-fade-in-trust">
           <div className="relative overflow-hidden w-full max-w-4xl mx-auto">
             <div className="flex items-center gap-10 hover:opacity-80 transition-all duration-500 animate-slide-left">
               <div className="flex items-center gap-10 whitespace-nowrap text-6xl">
@@ -83,7 +83,7 @@ export function TechStack() {
         </div>
 
         {/* Mobile Trust Indicators */}
-        <div className="text-center px-4 mb-8 sm:hidden overflow-hidden animate-fade-in-trust">
+        <div className="text-center px-4 mb-10 sm:hidden overflow-hidden animate-fade-in-trust">
           <p className="text-sm text-white mb-6">
             Trusted by innovative companies worldwide
           </p>
@@ -106,7 +106,7 @@ export function TechStack() {
               </div>
               {/* Duplicate for seamless loop */}
               <div className="flex items-center gap-6 whitespace-nowrap text-4xl">
-               <i className="devicon-javascript-plain colored"></i>
+                <i className="devicon-javascript-plain colored"></i>
                 <i className="devicon-react-original colored"></i>
                 <i className="devicon-nextjs-plain"></i>
                 <i className="devicon-tailwindcss-plain colored"></i>
@@ -117,6 +117,49 @@ export function TechStack() {
                 <i className="devicon-reactnative-original-wordmark colored"></i>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div
+          className={`text-center mb-8 sm:mb-16 transition-all duration-1000 opacity-100 translate-y-8`}
+        >
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-balance mb-4 sm:mb-6">
+            <span> Scale with AI-Powered Software</span>
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-4xl mx-auto font-light leading-relaxed">
+            We are a leading software development outsourcing company
+            headquartered in Melbourne, Australia with a proven track record of
+            delivering top-tier solutions for businesses worldwide.
+          </p>
+        </div>
+
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 transition-all duration-1000 delay-600 opacity-100 translate-y-8"
+          `}
+        >
+          <div className="text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300">
+            <div className="text-2xl sm:text-3xl font-bold text-white mb-2">
+              €500+
+            </div>
+            <p className="text-white/70 text-xs sm:text-sm">
+              Average value per lost lead
+            </p>
+          </div>
+          <div className="text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300">
+            <div className="text-2xl sm:text-3xl font-bold text-white mb-2">
+              78%
+            </div>
+            <p className="text-white/70 text-xs sm:text-sm">
+              Choose first responder
+            </p>
+          </div>
+          <div className="text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300">
+            <div className="text-2xl sm:text-3xl font-bold text-white mb-2">
+              24/7
+            </div>
+            <p className="text-white/70 text-xs sm:text-sm">
+              Our AI never sleeps
+            </p>
           </div>
         </div>
       </div>
