@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./components/navbar";
 import { Footer } from "./components/footer";
+import Aurora from "./components/aurora";
 import { Dancing_Script, Caveat } from "next/font/google"
 
 
@@ -33,6 +34,9 @@ export default function RootLayout({
       <body
         className={`${dancingScript.variable} ${caveat.variable} antialiased`}
       >
+         <div className="fixed inset-0 w-full h-full">
+          <Aurora colorStops={["#475569", "#64748b", "#475569"]} amplitude={1.2} blend={0.6} speed={0.8} />
+        </div>
         <Navbar />
         <main> {children}</main>
         <Footer/>
