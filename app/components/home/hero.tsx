@@ -83,9 +83,7 @@ export function HeroSection() {
             Start Your Project Today
             <ArrowRight />
           </button>
-          <button className="bg-white text-black w-fit flex items-center rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden">
-            Let's Talk <Play />
-          </button>
+          
         </div>
 
        
