@@ -35,31 +35,27 @@ const Play = () => (
 
 export function TechStack() {
   return (
-    <section className="flex items-center justify-center px-4 pt-10 relative">
+    <section className="flex items-center justify-center px-4 py-10 relative">
       <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-hero">
         
         <div
-          className={`text-center mb-12 sm:mb-20 transition-all duration-1000 opacity-100translate-y-8
+          className={`text-center mb-8 sm:mb-16 transition-all duration-1000 opacity-100translate-y-8
           `}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-balance mb-4 sm:mb-6">
-            <span className="text-red-400">60-70%</span> of Your Leads Are
-            Slipping Away
+                     <span>  We Are Proficient in Your Tech Stack</span>
+
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mx-auto font-light leading-relaxed">
-            While you're busy serving customers, your online inquiries are going
-            unanswered. Here's how we fix it.
+            Building scalable, maintainable applications with React, Next.js, TypeScript, Node.js, Java, .NET, and Tailwind — fast, reliable, and production-ready.
           </p>
         </div>
 
         {/* Trust Indicators */}
         <div className="text-center px-4 hidden sm:block overflow-hidden animate-fade-in-trust">
-          <p className="text-3xl text-white mb-16">
-            We Are Proficient in Your Tech Stack
-          </p>
           <div className="relative overflow-hidden w-full max-w-4xl mx-auto">
-            <div className="flex items-center gap-8 hover:opacity-80 transition-all duration-500 animate-slide-left">
-              <div className="flex items-center gap-8 whitespace-nowrap text-8xl">
+            <div className="flex items-center gap-10 hover:opacity-80 transition-all duration-500 animate-slide-left">
+              <div className="flex items-center gap-10 whitespace-nowrap text-6xl">
                 <i className="devicon-javascript-plain colored"></i>
                 <i className="devicon-react-original colored"></i>
                 <i className="devicon-nextjs-plain"></i>
@@ -71,7 +67,7 @@ export function TechStack() {
                 <i className="devicon-reactnative-original-wordmark colored"></i>
               </div>
               {/* Duplicate for seamless loop */}
-              <div className="flex items-center gap-8 whitespace-nowrap text-8xl">
+              <div className="flex items-center gap-10 whitespace-nowrap text-6xl">
                 <i className="devicon-javascript-plain colored"></i>
                 <i className="devicon-react-original colored"></i>
                 <i className="devicon-nextjs-plain"></i>
@@ -97,22 +93,28 @@ export function TechStack() {
             {/* Right blur fade */}
             <div className="absolute right-0 top-0 w-8 h-full bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
             <div className="flex items-center gap-6 opacity-60 animate-slide-left-mobile">
-              <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="text-sm font-semibold">TechCorp</div>
-                <div className="text-sm font-semibold">InnovateLab</div>
-                <div className="text-sm font-semibold">FutureScale</div>
-                <div className="text-sm font-semibold">AutoFlow</div>
-                <div className="text-sm font-semibold">eScale</div>
-                <div className="text-sm font-semibold">DataFlow</div>
+              <div className="flex items-center gap-6 whitespace-nowrap text-4xl">
+                <i className="devicon-javascript-plain colored"></i>
+                <i className="devicon-react-original colored"></i>
+                <i className="devicon-nextjs-plain"></i>
+                <i className="devicon-tailwindcss-plain colored"></i>
+                <i className="devicon-nodejs-plain-wordmark colored"></i>
+                <i className="devicon-java-plain-wordmark colored"></i>
+                <i className="devicon-typescript-plain colored"></i>
+                <i className="devicon-dot-net-plain-wordmark colored"></i>
+                <i className="devicon-reactnative-original-wordmark colored"></i>
               </div>
               {/* Duplicate for seamless loop */}
-              <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="text-sm font-semibold">TechCorp</div>
-                <div className="text-sm font-semibold">InnovateLab</div>
-                <div className="text-sm font-semibold">FutureScale</div>
-                <div className="text-sm font-semibold">AutoFlow</div>
-                <div className="text-sm font-semibold">eScale</div>
-                <div className="text-sm font-semibold">DataFlow</div>
+              <div className="flex items-center gap-6 whitespace-nowrap text-4xl">
+               <i className="devicon-javascript-plain colored"></i>
+                <i className="devicon-react-original colored"></i>
+                <i className="devicon-nextjs-plain"></i>
+                <i className="devicon-tailwindcss-plain colored"></i>
+                <i className="devicon-nodejs-plain-wordmark colored"></i>
+                <i className="devicon-java-plain-wordmark colored"></i>
+                <i className="devicon-typescript-plain colored"></i>
+                <i className="devicon-dot-net-plain-wordmark colored"></i>
+                <i className="devicon-reactnative-original-wordmark colored"></i>
               </div>
             </div>
           </div>
