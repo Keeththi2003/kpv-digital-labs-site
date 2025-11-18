@@ -31,16 +31,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${dancingScript.variable} ${caveat.variable} antialiased`}
-      >
-         <div className="fixed inset-0 w-full h-full">
+      <body>
+        
+      <div className="min-h-screen bg-black overflow-hidden">
+      <main className="min-h-screen relative overflow-hidden">
+        <div className="fixed inset-0 w-full h-full">
           <Aurora colorStops={["#475569", "#64748b", "#475569"]} amplitude={1.2} blend={0.6} speed={0.8} />
         </div>
-        <Navbar />
-        <main> {children}</main>
-        <Footer/>
-      </body>
+        <div className="relative z-10">
+          <Navbar />
+          {children}
+          <Footer />
+        </div>
+      </main>
+    </div>
+          </body>
+
     </html>
   );
 }
