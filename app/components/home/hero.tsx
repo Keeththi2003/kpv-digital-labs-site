@@ -1,5 +1,5 @@
 // import { Button } from "@/components/ui/button"
-import RotatingText from "@/app/components/RotatingText"
+import RotatingText from "@/app/components/home/RotatingText"
 
 
 const ArrowRight = () => (
@@ -36,7 +36,7 @@ export function HeroSection() {
         {/* Badge */}
         <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 mt-12 animate-fade-in-badge">
           <span className="w-2 h-2 bg-white/60 rounded-full mr-2 animate-pulse"></span>
-          AI Automation for Enterprise
+          AI Powerd Software Solutions
         </div>
 
         {/* Main Heading */}
@@ -62,26 +62,19 @@ export function HeroSection() {
 
         {/* Subheading */}
         <p className="text-base sm:text-xl md:text-2xl text-white text-balance max-w-sm sm:max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
-          Cliste helps Irish businesses save time and boost revenue with smart chat, workflows and automations, fully
-          managed for you.
+          Bridging Innovation and Expertise Through Our Outsourced Software Development Services
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-16 animate-fade-in-buttons">
           <button
-            className="bg-white text-black rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden"
+            className="bg-white text-black w-fit flex items-center rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden"
           >
-            Start Automating
+            Start Your Project Today
             <ArrowRight />
           </button>
 
-          <button
-           
-            className="rounded-full px-8 py-4 text-lg font-medium border-border hover:bg-accent transition-all duration-200 hover:scale-105 group bg-transparent cursor-pointer"
-          >
-            <Play />
-            Watch Demo
-          </button>
+          
         </div>
 
         {/* Trust Indicators */}
