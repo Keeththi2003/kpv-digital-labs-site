@@ -31,6 +31,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+        <head>
+        {/* Devicon CSS */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+      </head>
       <body>
         
       <div className="min-h-screen bg-black overflow-hidden">
@@ -44,9 +51,9 @@ export default function RootLayout({
           <Footer />
         </div>
       </main>
-    </div>
-          </body>
 
+    </div>
+    </body>
     </html>
   );
 }
