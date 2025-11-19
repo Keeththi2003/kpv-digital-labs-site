@@ -15,20 +15,20 @@ files.forEach(file => {
 
   // Add width and height attributes or replace if already exists
   if (/width=".*?"/.test(content)) {
-    content = content.replace(/width=".*?"/g, 'width="64px"');
+    content = content.replace(/width=".*?"/g, 'width="80px"');
   } else {
     content = content.replace(
       /<svg/,
-      '<svg width="64px"'
+      '<svg width="80px"'
     );
   }
 
   if (/height=".*?"/.test(content)) {
-    content = content.replace(/height=".*?"/g, 'height="64px"');
+    content = content.replace(/height=".*?"/g, 'height="80px"');
   } else {
     content = content.replace(
       /<svg/,
-      '<svg height="64px"'
+      '<svg height="80px"'
     );
   }
 
