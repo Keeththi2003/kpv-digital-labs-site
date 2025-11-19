@@ -36,7 +36,7 @@ export function Hero() {
           {/* Video placeholder */}
           <div className="max-w-xs sm:max-w-3xl mx-auto px-6 sm:px-0 mb-8 animate-fade-in-buttons">
             <div className="relative w-full aspect-video bg-white/5 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl group cursor-pointer hover:bg-white/10 hover:border-white/30 transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-white/5"></div>
 
               <div className="absolute inset-0 flex items-center justify-center z-10">
                 <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-white transition-all duration-300 shadow-xl">
