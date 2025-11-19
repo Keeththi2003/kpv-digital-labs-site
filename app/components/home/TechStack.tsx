@@ -38,8 +38,7 @@ export function TechStack() {
     <section className="flex items-center justify-center px-4 py-10 relative">
       <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-hero">
         <div
-          className={`text-center mb-8 sm:mb-16 transition-all duration-1000 opacity-100 translate-y-8
-          `}
+          className={`text-center mb-8 sm:mb-20 transition-all duration-1000 opacity-100 translate-y-8`}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-balance mb-4 sm:mb-6">
             <span> We Are Proficient in Your Tech Stack</span>
@@ -134,7 +133,7 @@ export function TechStack() {
         </div>
 
         <div
-          className={`grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 transition-all duration-1000 delay-600 opacity-100 translate-y-8"
+          className={`grid grid-cols-1 sm:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 transition-all duration-1000 delay-600 opacity-100 translate-y-8"
           `}
         >
           <div className="text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300">
@@ -142,15 +141,22 @@ export function TechStack() {
               €500+
             </div>
             <p className="text-white/70 text-xs sm:text-sm">
-              Average value per lost lead
+              Years in Buisness{" "}
             </p>
+          </div>
+          <div className="text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300">
+            <div className="text-2xl sm:text-3xl font-bold text-white mb-2">
+              €500+
+            </div>
+            <p className="text-white/70 text-xs sm:text-sm">
+Resources            </p>
           </div>
           <div className="text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300">
             <div className="text-2xl sm:text-3xl font-bold text-white mb-2">
               78%
             </div>
             <p className="text-white/70 text-xs sm:text-sm">
-              Choose first responder
+            Client Trusted Us
             </p>
           </div>
           <div className="text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300">
@@ -158,7 +164,7 @@ export function TechStack() {
               24/7
             </div>
             <p className="text-white/70 text-xs sm:text-sm">
-              Our AI never sleeps
+            Industries Coverd
             </p>
           </div>
         </div>
