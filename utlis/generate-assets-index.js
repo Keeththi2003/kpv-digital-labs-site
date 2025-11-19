@@ -16,7 +16,7 @@ files.forEach(file => {
 content += "\nexport {\n";
 files.forEach(file => {
   const varName = path.basename(file, path.extname(file)).replace(/[^a-zA-Z0-9_]/g, "_");
-  content += `  ${varName},\n`;
+  content += `  img${varName},\n`;
 });
 content += "};\n";
 
