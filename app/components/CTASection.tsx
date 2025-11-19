@@ -39,7 +39,7 @@ export function CTASection() {
       <div className="relative max-w-4xl mx-auto">
         <div className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-center p-8 md:p-10 rounded-3xl border border-white/20 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/15%),theme(backgroundColor.white/5%))]">
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4 text-balance leading-tight">
-            <span className="font-medium bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent">
+            <span className="font-medium bg-linear-to-r from-white to-slate-200 bg-clip-text text-transparent">
               How can we help you?{" "}
             </span>
           </h3>
@@ -48,7 +48,7 @@ export function CTASection() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <button className="group inline-flex items-center gap-3 px-8 py-3 md:px-8 md:py-4 bg-gradient-to-r from-white to-slate-100 text-slate-900 rounded-full font-semibold text-base md:text-lg hover:from-slate-50 hover:to-slate-200 transition-all duration-300 hover:scale-105 shadow-2xl">
+            <button className="group inline-flex items-center gap-3 px-8 py-3 md:px-8 md:py-4 bg-lineat-to-r from-white to-slate-100 text-slate-900 rounded-full font-semibold text-base md:text-lg hover:from-slate-50 hover:to-slate-200 transition-all duration-300 hover:scale-105 shadow-2xl">
               Book a Call{" "}
               <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform duration-200" />
             </button>
