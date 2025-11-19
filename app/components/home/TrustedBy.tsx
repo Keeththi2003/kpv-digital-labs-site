@@ -81,7 +81,7 @@ export function TrustedBy() {
 
   return (
     <section
-      id="testimonials"
+      id="trustedBy"
       ref={sectionRef}
       className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8"
     >
