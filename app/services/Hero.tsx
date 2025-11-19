@@ -16,11 +16,13 @@ export function Hero() {
           <div className="animate-fade-in-subheading">
             {/* Desktop version - single line */}
             <div className=" sm:flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
-              <span className="text-xl md:text-2xl max-w-4xl text-slate-300">
-                We believe in a collaborative and transparent approach to
-                delivering exceptional software solutions. Our process is
-                designed to ensure that your project is executed efficiently,
-                effectively, and aligned with your specific needs.
+              <span className="text-xl md:text-2xl max-w-5xl text-slate-300">
+                We offer a multitude of services from custom software
+                development to ongoing support to help drive your business’
+                digital transformation.<br></br> We source experts with substantial
+                experience and expertise across <br></br>industries to help streamline
+                your operations, optimise expenses, and boost efficiency all
+                while helping you innovate your core functions.
               </span>
             </div>
           </div>
