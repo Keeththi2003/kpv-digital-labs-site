@@ -6,23 +6,21 @@ export function Hero() {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 mt-8 md:mt-12 animate-fade-in-badge">
           <span className="w-2 h-2 bg-white/60 rounded-full mr-2 animate-pulse"></span>
-          Services{" "}
+          Blogs{" "}
         </div>
         <div className="space-y-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight text-balance animate-fade-in-heading">
-            Software Development Services{" "}
+            Resources{" "}
           </h1>
 
           <div className="animate-fade-in-subheading">
             {/* Desktop version - single line */}
             <div className=" sm:flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
               <span className="text-xl md:text-2xl max-w-5xl text-slate-300">
-                We offer a multitude of services from custom software
-                development to ongoing support to help drive your business’
-                digital transformation.<br></br> We source experts with substantial
-                experience and expertise across <br></br>industries to help streamline
-                your operations, optimise expenses, and boost efficiency all
-                while helping you innovate your core functions.
+                Sharing knowledge and giving back to the software community is
+                very important to us. See views, thoughts and insights below
+                from various parts of the business based on experience and past
+                engagements.
               </span>
             </div>
           </div>
