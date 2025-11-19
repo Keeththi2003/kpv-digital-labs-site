@@ -1,7 +1,8 @@
 // import { Button } from "@/components/ui/button"
 import RotatingText from "@/app/components/home/RotatingText";
+import {ArrowRight} from "lucide-react";
 
-const ArrowRight = () => (
+const Arrow = () => (
   <svg
     className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
     fill="none"
@@ -35,7 +36,7 @@ const Play = () => (
 
 export function TechStack() {
   return (
-    <section className="flex items-center justify-center px-4 py-10 relative">
+    <section className="flex flex-col items-center justify-center px-4 py-10 relative">
       <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-hero">
         <div
           className={`text-center mb-8 sm:mb-20 transition-all duration-1000 opacity-100 translate-y-8`}
@@ -133,7 +134,7 @@ export function TechStack() {
         </div>
 
         <div
-          className={`grid grid-cols-1 sm:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 transition-all duration-1000 delay-600 opacity-100 translate-y-8"
+          className={`grid grid-cols-1 sm:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8 transition-all duration-1000 delay-600 opacity-100 translate-y-8"
           `}
         >
           <div className="text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300">
@@ -169,6 +170,13 @@ Resources            </p>
           </div>
         </div>
       </div>
+        <button className="relative bg-white hover:bg-gray-300 text-background font-medium px-10 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group">
+                    <span className="mr-2">Let&apos;s Talk</span>
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </button>
     </section>
   );
 }
