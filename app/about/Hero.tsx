@@ -34,7 +34,7 @@ export function Hero() {
           </div>
 
           {/* Video placeholder */}
-          {/* <div className="max-w-xs sm:max-w-3xl mx-auto px-6 sm:px-0 mb-8 animate-fade-in-buttons">
+          <div className="max-w-xs sm:max-w-3xl mx-auto px-6 sm:px-0 mb-8 animate-fade-in-buttons">
             <div className="relative w-full aspect-video bg-white/5 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl group cursor-pointer hover:bg-white/10 hover:border-white/30 transition-all duration-500">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5"></div>
 
@@ -67,7 +67,7 @@ export function Hero() {
                 }}
               ></div>
             </div>
-          </div> */}
+          </div>
         </div>{" "}
       </div>
     </section>
