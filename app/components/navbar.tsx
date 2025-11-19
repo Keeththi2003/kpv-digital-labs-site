@@ -127,8 +127,8 @@ export function Navbar() {
         }}
       >
         {/* Main Navigation */}
-        <div className="w-[90vw] max-w-xs md:max-w-4xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-3 md:px-6 md:py-2">
+        <div className="w-screen max-w-sm md:max-w-5xl mx-auto">
+          <div className=" bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-3 md:px-6 md:py-2">
             <div className="flex items-center justify-between">
               {/* Logo */}
               <Link
@@ -213,7 +213,7 @@ export function Navbar() {
         <div className="md:hidden relative">
           {/* Backdrop overlay */}
           <div
-            className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-300 ${
+            className={`fixed inset-0 backdrop-blur-sm transition-all duration-300 ${
               isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
             onClick={() => setIsOpen(false)}
