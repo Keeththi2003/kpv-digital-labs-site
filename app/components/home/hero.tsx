@@ -79,7 +79,7 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 sm:mb-12 animate-fade-in-buttons">
-          <button className="bg-white text-black w-fit flex items-center rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden">
+          <button className="bg-white text-black w-fit flex items-center rounded-full px-5 sm:px-8 py-3 sm:py-4 text-md sm:text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden">
             Start Your Project Today
             <ArrowRight />
           </button>
