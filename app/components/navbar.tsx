@@ -1,22 +1,55 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
-  { name: "How We Work", href: "/work" },
-  { name: "Services", href: "/services" },
-  { name: "Resources", href: "/resources" },
+  { name: "How We Work", href: "/how-we-work" },
+
+  {
+    name: "Services",
+    href: "/services",
+    submenu: [
+      {
+        name: "Artificial Intelligence",
+        href: "/services/artificial-intelligence",
+      },
+      { name: "DevOps as a Service", href: "/services/devops" },
+      {
+        name: "Enterprise Software Development",
+        href: "/services/enterprise-software-development",
+      },
+      {
+        name: "Managed Service Augmentation",
+        href: "/services/managed-service-augmentation",
+      },
+      { name: "MVP Factory", href: "/services/mvp-factory" },
+      { name: "QA as a Service", href: "/services/qa" },
+      { name: "Search Engine Optimization", href: "/services/seo" },
+    ],
+  },
+  {
+    name: "Resources",
+    href: "/resources",
+    submenu: [
+      { name: "Blogs", href: "/resources/blogs" },
+      { name: "Case Studies", href: "/resources/case-studies" },
+    ],
+  },
 ];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const [openDesktopSubmenu, setOpenDesktopSubmenu] = useState<string | null>(
+    null
+  );
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -28,30 +61,16 @@ export function Navbar() {
       if (typeof window !== "undefined") {
         const currentScrollY = window.scrollY;
 
-        console.log(
-          "[v0] Scroll event - currentScrollY:",
-          currentScrollY,
-          "lastScrollY:",
-          lastScrollY.current
-        );
-
-        // Only hide/show after scrolling past 50px to avoid flickering at top
         if (currentScrollY > 50) {
           if (
             currentScrollY > lastScrollY.current &&
             currentScrollY - lastScrollY.current > 5
           ) {
-            // Scrolling down - hide navbar
-            console.log("[v0] Hiding navbar - scrolling down");
             setIsVisible(false);
           } else if (lastScrollY.current - currentScrollY > 5) {
-            // Scrolling up - show navbar
-            console.log("[v0] Showing navbar - scrolling up");
             setIsVisible(true);
           }
         } else {
-          // Always show navbar when near top
-          console.log("[v0] Showing navbar - near top");
           setIsVisible(true);
         }
 
@@ -61,20 +80,17 @@ export function Navbar() {
 
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", controlNavbar, { passive: true });
-      console.log("[v0] Scroll listener added");
 
       return () => {
         window.removeEventListener("scroll", controlNavbar);
         clearTimeout(timer);
-        console.log("[v0] Scroll listener removed");
       };
     }
 
     return () => clearTimeout(timer);
-  }, []); // Removed lastScrollY dependency to prevent infinite re-renders
+  }, []);
 
   const scrollToTop = () => {
-    console.log("[v0] Scrolling to top");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -83,11 +99,8 @@ export function Navbar() {
       return;
     }
 
-    console.log("[v0] Attempting to scroll to:", href);
     const element = document.querySelector(href);
     if (element) {
-      console.log("[v0] Found element:", element);
-
       const rect = element.getBoundingClientRect();
       const currentScrollY =
         window.pageYOffset || document.documentElement.scrollTop;
@@ -95,17 +108,10 @@ export function Navbar() {
       const navbarHeight = 100;
       const targetPosition = Math.max(0, elementAbsoluteTop - navbarHeight);
 
-      console.log("[v0] Element rect.top:", rect.top);
-      console.log("[v0] Current scroll position:", currentScrollY);
-      console.log("[v0] Element absolute top:", elementAbsoluteTop);
-      console.log("[v0] Target scroll position:", targetPosition);
-
       window.scrollTo({
         top: targetPosition,
         behavior: "smooth",
       });
-    } else {
-      console.log("[v0] Element not found for:", href);
     }
     setIsOpen(false);
   };
@@ -139,41 +145,69 @@ export function Navbar() {
                   <Image
                     src="/KPV.svg"
                     alt="KPV"
-                    width={60}
-                    height={60}
-                    className="w-full h-full object-fit"
+                    width={40}
+                    height={40}
+                    className="w-full h-full object-contain"
                   />
                 </div>
               </Link>
 
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-8">
-                {navigation.map((item) =>
-                  item.href.startsWith("/") ? (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer"
-                    >
-                      {item.name}
-                    </Link>
-                  ) : (
-                    <button
-                      key={item.name}
-                      onClick={() => scrollToSection(item.href)}
-                      className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer"
-                    >
-                      {item.name}
-                    </button>
-                  )
-                )}
+                {navigation.map((item) => (
+                  <div key={item.name} className="relative group">
+                    {item.href.startsWith("/") ? (
+                      <Link
+                        href={item.href}
+                        className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer flex items-center gap-2"
+                      >
+                        {item.name}
+                        {item.submenu && (
+                          <ChevronDown
+                            size={16}
+                            className="group-hover:rotate-180 transition-transform"
+                          />
+                        )}
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => scrollToSection(item.href)}
+                        className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer flex items-center gap-2"
+                      >
+                        {item.name}
+                        {item.submenu && (
+                          <ChevronDown
+                            size={16}
+                            className="group-hover:rotate-180 transition-transform"
+                          />
+                        )}
+                      </button>
+                    )}
+                    {item.submenu && (
+                      <div className="absolute px-2 mt-5 max-w-fit bg-white/20 backdrop-blur-md border border-white/20 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
+                        {item.submenu.map((subitem) => (
+                          <Link
+                            key={subitem.name}
+                            href={subitem.href}
+                            className="block px-4 py-2 rounded-lg whitespace-nowrap text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+                          >
+                            {subitem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
 
               {/* Desktop CTA Button */}
               <div className="hidden md:block">
                 <Link href={"/contact"}>
-                  <button className="relative bg-[#ff3131] hover:bg-orange-600 text-white font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group">
-                    <span className="mr-2">Let&apos;s Talk</span>
+                  <button
+                    className="relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group"
+                    onClick={() => scrollToSection("#contact")}
+                  >
+                    <span className="mr-2">Let's Talk</span>
                     <ArrowRight
                       size={16}
                       className="transition-transform duration-300 group-hover:translate-x-1"
@@ -230,44 +264,72 @@ export function Navbar() {
           >
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-2xl">
               <div className="flex flex-col space-y-1">
-                {navigation.map((item, index) =>
-                  item.href.startsWith("/") ? (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
-                        isOpen ? "animate-mobile-menu-item" : ""
-                      }`}
-                      style={{
-                        animationDelay: isOpen
-                          ? `${index * 80 + 100}ms`
-                          : "0ms",
-                      }}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  ) : (
+                {navigation.map((item, index) => (
+                  <div key={item.name}>
                     <button
-                      key={item.name}
-                      onClick={() => scrollToSection(item.href)}
-                      className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
-                        isOpen ? "animate-mobile-menu-item" : ""
-                      }`}
+                      onClick={() => {
+                        if (!item.submenu) {
+                          setIsOpen(false);
+                          window.location.href = item.href;
+                        } else {
+                          if (openSubmenu === item.name) {
+                            setIsOpen(false);
+                            window.location.href = item.href;
+                          } else {
+                            setOpenSubmenu(item.name);
+                          }
+                        }
+                      }}
+                      className={`w-full text-white/80 hover:text-white hover:bg-white/10 rounded-lg 
+         px-3 py-1 text-left transition-all duration-300 font-medium cursor-pointer 
+      transform hover:scale-[1.02] hover:translate-x-1 
+      ${isOpen ? "animate-mobile-menu-item" : ""}`}
                       style={{
                         animationDelay: isOpen
                           ? `${index * 80 + 100}ms`
                           : "0ms",
                       }}
                     >
-                      {item.name}
+                      <div className="flex items-center justify-between py-3">
+                        <span>{item.name}</span>
+                        {item.submenu && (
+                          <ChevronDown
+                            size={16}
+                            className={`transition-transform ${
+                              openSubmenu === item.name ? "rotate-180" : ""
+                            }`}
+                          />
+                        )}
+                      </div>
                     </button>
-                  )
-                )}
+
+                    {/* Submenu dropdown */}
+                    {item.submenu && openSubmenu === item.name && (
+                      <div className="pl-4 space-y-1 mt-1">
+                        {item.submenu.map((subitem, subindex) => (
+                          <Link
+                            key={subitem.name}
+                            href={subitem.href}
+                            className="block text-white/60 hover:text-white hover:bg-white/10 
+            rounded-lg px-3 py-2 text-sm transition-all duration-300 cursor-pointer"
+                            style={{
+                              animationDelay: isOpen
+                                ? `${(index + 1) * 80 + 100 + subindex * 40}ms`
+                                : "0ms",
+                            }}
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {subitem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
                 <div className="h-px bg-white/10 my-2" />
                 <Link href={"/contact"}>
                   <button
-                    className={`relative bg-orange-600 hover:bg-orange-500 text-white font-medium px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group transform ${
+                    className={`relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group transform ${
                       isOpen ? "animate-mobile-menu-item" : ""
                     }`}
                     style={{
@@ -275,8 +337,9 @@ export function Navbar() {
                         ? `${navigation.length * 80 + 150}ms`
                         : "0ms",
                     }}
+                    onClick={() => scrollToSection("#contact")}
                   >
-                    <span className="mr-2">Let&apos;s Talk</span>
+                    <span className="mr-2">Let's Talk</span>
                     <ArrowRight
                       size={16}
                       className="transition-transform duration-300 group-hover:translate-x-1"
