@@ -269,7 +269,7 @@ export function Navbar() {
                     {item.href.startsWith("/") ? (
                       <Link
                         href={item.href}
-                        className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
+                        className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg  text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
                           isOpen ? "animate-mobile-menu-item" : ""
                         }`}
                         style={{
@@ -279,7 +279,7 @@ export function Navbar() {
                         }}
                         onClick={() => setIsOpen(false)}
                       >
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-between py-3">
                           <span>{item.name}</span>
                           {item.submenu && (
                             <ChevronDown
@@ -302,7 +302,7 @@ export function Navbar() {
                             scrollToSection(item.href);
                           }
                         }}
-                        className={`w-full text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
+                        className={`w-full text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-1 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
                           isOpen ? "animate-mobile-menu-item" : ""
                         }`}
                         style={{
