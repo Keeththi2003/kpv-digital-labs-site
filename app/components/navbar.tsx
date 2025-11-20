@@ -1,111 +1,135 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { Menu, X, ArrowRight, ChevronDown } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
-    { name: "How We Work", href: "/work" },
+  { name: "How We Work", href: "/how-we-work" },
 
   {
     name: "Services",
     href: "/services",
     submenu: [
-      { name: "Delivery Management", href: "/restaurants/delivery" },
-      { name: "Order Processing", href: "/restaurants/orders" },
-      { name: "Kitchen Display", href: "/restaurants/kitchen" },
+      {
+        name: "Artificial Intelligence",
+        href: "/services/artificial-intelligence",
+      },
+      { name: "DevOps as a Service", href: "/services/devops" },
+      {
+        name: "Enterprise Software Development",
+        href: "/services/enterprise-software-development",
+      },
+      {
+        name: "Managed Service Augmentation",
+        href: "/services/managed-service-augmentation",
+      },
+      { name: "MVP Factory", href: "/services/mvp-factory" },
+      { name: "QA as a Service", href: "/services/qa" },
+      { name: "Search Engine Optimization", href: "/services/seo" },
     ],
   },
   {
-    name: "Resource",
-    href: "/resource",
+    name: "Resources",
+    href: "/resources",
     submenu: [
-      { name: "Blogs", href: "/car-dealerships/inventory" },
-      { name: "Lead Management", href: "/car-dealerships/leads" },
-      { name: "Service Scheduling", href: "/car-dealerships/service" },
+      { name: "Blogs", href: "/resources/blogs" },
+      { name: "Case Studies", href: "/resources/case-studies" },
     ],
   },
-]
+];
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isVisible, setIsVisible] = useState(true)
-  const [hasLoaded, setHasLoaded] = useState(false)
-  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
-  const [openDesktopSubmenu, setOpenDesktopSubmenu] = useState<string | null>(null)
-  const lastScrollY = useRef(0)
+  const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const [openDesktopSubmenu, setOpenDesktopSubmenu] = useState<string | null>(
+    null
+  );
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setHasLoaded(true)
-    }, 100)
+      setHasLoaded(true);
+    }, 100);
 
     const controlNavbar = () => {
       if (typeof window !== "undefined") {
-        const currentScrollY = window.scrollY
+        const currentScrollY = window.scrollY;
 
         if (currentScrollY > 50) {
-          if (currentScrollY > lastScrollY.current && currentScrollY - lastScrollY.current > 5) {
-            setIsVisible(false)
+          if (
+            currentScrollY > lastScrollY.current &&
+            currentScrollY - lastScrollY.current > 5
+          ) {
+            setIsVisible(false);
           } else if (lastScrollY.current - currentScrollY > 5) {
-            setIsVisible(true)
+            setIsVisible(true);
           }
         } else {
-          setIsVisible(true)
+          setIsVisible(true);
         }
 
-        lastScrollY.current = currentScrollY
+        lastScrollY.current = currentScrollY;
       }
-    }
+    };
 
     if (typeof window !== "undefined") {
-      window.addEventListener("scroll", controlNavbar, { passive: true })
+      window.addEventListener("scroll", controlNavbar, { passive: true });
 
       return () => {
-        window.removeEventListener("scroll", controlNavbar)
-        clearTimeout(timer)
-      }
+        window.removeEventListener("scroll", controlNavbar);
+        clearTimeout(timer);
+      };
     }
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const scrollToSection = (href: string) => {
     if (href.startsWith("/")) {
-      return
+      return;
     }
 
-    const element = document.querySelector(href)
+    const element = document.querySelector(href);
     if (element) {
-      const rect = element.getBoundingClientRect()
-      const currentScrollY = window.pageYOffset || document.documentElement.scrollTop
-      const elementAbsoluteTop = rect.top + currentScrollY
-      const navbarHeight = 100
-      const targetPosition = Math.max(0, elementAbsoluteTop - navbarHeight)
+      const rect = element.getBoundingClientRect();
+      const currentScrollY =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const elementAbsoluteTop = rect.top + currentScrollY;
+      const navbarHeight = 100;
+      const targetPosition = Math.max(0, elementAbsoluteTop - navbarHeight);
 
       window.scrollTo({
         top: targetPosition,
         behavior: "smooth",
-      })
+      });
     }
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <>
       <nav
         className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
-          isVisible ? "translate-y-0 opacity-100" : "-translate-y-20 md:-translate-y-24 opacity-0"
-        } ${hasLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          isVisible
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-20 md:-translate-y-24 opacity-0"
+        } ${
+          hasLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
         style={{
-          transition: hasLoaded ? "all 0.5s ease-out" : "opacity 0.8s ease-out, transform 0.8s ease-out",
+          transition: hasLoaded
+            ? "all 0.5s ease-out"
+            : "opacity 0.8s ease-out, transform 0.8s ease-out",
         }}
       >
         {/* Main Navigation */}
@@ -139,7 +163,10 @@ export function Navbar() {
                       >
                         {item.name}
                         {item.submenu && (
-                          <ChevronDown size={16} className="group-hover:rotate-180 transition-transform" />
+                          <ChevronDown
+                            size={16}
+                            className="group-hover:rotate-180 transition-transform"
+                          />
                         )}
                       </Link>
                     ) : (
@@ -149,7 +176,10 @@ export function Navbar() {
                       >
                         {item.name}
                         {item.submenu && (
-                          <ChevronDown size={16} className="group-hover:rotate-180 transition-transform" />
+                          <ChevronDown
+                            size={16}
+                            className="group-hover:rotate-180 transition-transform"
+                          />
                         )}
                       </button>
                     )}
@@ -172,15 +202,17 @@ export function Navbar() {
 
               {/* Desktop CTA Button */}
               <div className="hidden md:block">
-                <Link
-                href={"/contact"}>
-                <button
-                  className="relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group"
-                  onClick={() => scrollToSection("#contact")}
-                >
-                  <span className="mr-2">Let's Talk</span>
-                  <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
+                <Link href={"/contact"}>
+                  <button
+                    className="relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group"
+                    onClick={() => scrollToSection("#contact")}
+                  >
+                    <span className="mr-2">Let's Talk</span>
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </button>
                 </Link>
               </div>
 
@@ -193,13 +225,17 @@ export function Navbar() {
                   <Menu
                     size={24}
                     className={`absolute inset-0 transition-all duration-300 ${
-                      isOpen ? "opacity-0 rotate-180 scale-75" : "opacity-100 rotate-0 scale-100"
+                      isOpen
+                        ? "opacity-0 rotate-180 scale-75"
+                        : "opacity-100 rotate-0 scale-100"
                     }`}
                   />
                   <X
                     size={24}
                     className={`absolute inset-0 transition-all duration-300 ${
-                      isOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-180 scale-75"
+                      isOpen
+                        ? "opacity-100 rotate-0 scale-100"
+                        : "opacity-0 -rotate-180 scale-75"
                     }`}
                   />
                 </div>
@@ -221,7 +257,9 @@ export function Navbar() {
           {/* Menu container */}
           <div
             className={`mt-2 w-[90vw] max-w-xs mx-auto transition-all duration-500 ease-out transform-gpu ${
-              isOpen ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-8 scale-95 pointer-events-none"
+              isOpen
+                ? "opacity-100 translate-y-0 scale-100"
+                : "opacity-0 -translate-y-8 scale-95 pointer-events-none"
             }`}
           >
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-2xl">
@@ -235,7 +273,9 @@ export function Navbar() {
                           isOpen ? "animate-mobile-menu-item" : ""
                         }`}
                         style={{
-                          animationDelay: isOpen ? `${index * 80 + 100}ms` : "0ms",
+                          animationDelay: isOpen
+                            ? `${index * 80 + 100}ms`
+                            : "0ms",
                         }}
                         onClick={() => setIsOpen(false)}
                       >
@@ -244,7 +284,9 @@ export function Navbar() {
                           {item.submenu && (
                             <ChevronDown
                               size={16}
-                              className={`transition-transform ${openSubmenu === item.name ? "rotate-180" : ""}`}
+                              className={`transition-transform ${
+                                openSubmenu === item.name ? "rotate-180" : ""
+                              }`}
                             />
                           )}
                         </div>
@@ -253,16 +295,20 @@ export function Navbar() {
                       <button
                         onClick={() => {
                           if (item.submenu) {
-                            setOpenSubmenu(openSubmenu === item.name ? null : item.name)
+                            setOpenSubmenu(
+                              openSubmenu === item.name ? null : item.name
+                            );
                           } else {
-                            scrollToSection(item.href)
+                            scrollToSection(item.href);
                           }
                         }}
                         className={`w-full text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
                           isOpen ? "animate-mobile-menu-item" : ""
                         }`}
                         style={{
-                          animationDelay: isOpen ? `${index * 80 + 100}ms` : "0ms",
+                          animationDelay: isOpen
+                            ? `${index * 80 + 100}ms`
+                            : "0ms",
                         }}
                       >
                         <div className="flex items-center justify-between">
@@ -270,7 +316,9 @@ export function Navbar() {
                           {item.submenu && (
                             <ChevronDown
                               size={16}
-                              className={`transition-transform ${openSubmenu === item.name ? "rotate-180" : ""}`}
+                              className={`transition-transform ${
+                                openSubmenu === item.name ? "rotate-180" : ""
+                              }`}
                             />
                           )}
                         </div>
@@ -284,7 +332,9 @@ export function Navbar() {
                             href={subitem.href}
                             className="block text-white/60 hover:text-white hover:bg-white/10 rounded-lg px-3 py-2 text-sm transition-all duration-300 cursor-pointer"
                             style={{
-                              animationDelay: isOpen ? `${(index + 1) * 80 + 100 + subindex * 40}ms` : "0ms",
+                              animationDelay: isOpen
+                                ? `${(index + 1) * 80 + 100 + subindex * 40}ms`
+                                : "0ms",
                             }}
                             onClick={() => setIsOpen(false)}
                           >
@@ -296,20 +346,24 @@ export function Navbar() {
                   </div>
                 ))}
                 <div className="h-px bg-white/10 my-2" />
-                <Link
-                href={"/contact"}>
-                <button
-                  className={`relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group transform ${
-                    isOpen ? "animate-mobile-menu-item" : ""
-                  }`}
-                  style={{
-                    animationDelay: isOpen ? `${navigation.length * 80 + 150}ms` : "0ms",
-                  }}
-                  onClick={() => scrollToSection("#contact")}
-                >
-                  <span className="mr-2">Let's Talk</span>
-                  <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
+                <Link href={"/contact"}>
+                  <button
+                    className={`relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group transform ${
+                      isOpen ? "animate-mobile-menu-item" : ""
+                    }`}
+                    style={{
+                      animationDelay: isOpen
+                        ? `${navigation.length * 80 + 150}ms`
+                        : "0ms",
+                    }}
+                    onClick={() => scrollToSection("#contact")}
+                  >
+                    <span className="mr-2">Let's Talk</span>
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </button>
                 </Link>
               </div>
             </div>
@@ -317,5 +371,5 @@ export function Navbar() {
         </div>
       </nav>
     </>
-  )
+  );
 }
