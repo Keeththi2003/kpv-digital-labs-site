@@ -266,71 +266,52 @@ export function Navbar() {
               <div className="flex flex-col space-y-1">
                 {navigation.map((item, index) => (
                   <div key={item.name}>
-                    {item.href.startsWith("/") ? (
-                      <Link
-                        href={item.href}
-                        className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg  text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
-                          isOpen ? "animate-mobile-menu-item" : ""
-                        }`}
-                        style={{
-                          animationDelay: isOpen
-                            ? `${index * 80 + 100}ms`
-                            : "0ms",
-                        }}
-                        onClick={() => setIsOpen(false)}
-                      >
-                        <div className="flex items-center justify-between py-3">
-                          <span>{item.name}</span>
-                          {item.submenu && (
-                            <ChevronDown
-                              size={16}
-                              className={`transition-transform ${
-                                openSubmenu === item.name ? "rotate-180" : ""
-                              }`}
-                            />
-                          )}
-                        </div>
-                      </Link>
-                    ) : (
-                      <button
-                        onClick={() => {
-                          if (item.submenu) {
-                            setOpenSubmenu(
-                              openSubmenu === item.name ? null : item.name
-                            );
+                    <button
+                      onClick={() => {
+                        if (!item.submenu) {
+                          setIsOpen(false);
+                          window.location.href = item.href;
+                        } else {
+                          if (openSubmenu === item.name) {
+                            setIsOpen(false);
+                            window.location.href = item.href;
                           } else {
-                            scrollToSection(item.href);
+                            setOpenSubmenu(item.name);
                           }
-                        }}
-                        className={`w-full text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-1 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
-                          isOpen ? "animate-mobile-menu-item" : ""
-                        }`}
-                        style={{
-                          animationDelay: isOpen
-                            ? `${index * 80 + 100}ms`
-                            : "0ms",
-                        }}
-                      >
-                        <div className="flex items-center justify-between">
-                          <span>{item.name}</span>
-                          {item.submenu && (
-                            <ChevronDown
-                              size={16}
-                              className={`transition-transform ${
-                                openSubmenu === item.name ? "rotate-180" : ""
-                              }`}
-                            />
-                          )}
-                        </div>
-                      </button>
-                    )}
+                        }
+                      }}
+                      className={`w-full text-white/80 hover:text-white hover:bg-white/10 rounded-lg 
+         px-3 py-1 text-left transition-all duration-300 font-medium cursor-pointer 
+      transform hover:scale-[1.02] hover:translate-x-1 
+      ${isOpen ? "animate-mobile-menu-item" : ""}`}
+                      style={{
+                        animationDelay: isOpen
+                          ? `${index * 80 + 100}ms`
+                          : "0ms",
+                      }}
+                    >
+                      <div className="flex items-center justify-between py-3">
+                        <span>{item.name}</span>
+                        {item.submenu && (
+                          <ChevronDown
+                            size={16}
+                            className={`transition-transform ${
+                              openSubmenu === item.name ? "rotate-180" : ""
+                            }`}
+                          />
+                        )}
+                      </div>
+                    </button>
+
+                    {/* Submenu dropdown */}
                     {item.submenu && openSubmenu === item.name && (
                       <div className="pl-4 space-y-1 mt-1">
                         {item.submenu.map((subitem, subindex) => (
                           <Link
                             key={subitem.name}
                             href={subitem.href}
-                            className="block text-white/60 hover:text-white hover:bg-white/10 rounded-lg px-3 py-2 text-sm transition-all duration-300 cursor-pointer"
+                            className="block text-white/60 hover:text-white hover:bg-white/10 
+            rounded-lg px-3 py-2 text-sm transition-all duration-300 cursor-pointer"
                             style={{
                               animationDelay: isOpen
                                 ? `${(index + 1) * 80 + 100 + subindex * 40}ms`
