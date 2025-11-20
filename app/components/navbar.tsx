@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Children } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,8 +9,39 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "How We Work", href: "/work" },
-  { name: "Services", href: "/services" },
-  { name: "Resources", href: "/resources" },
+  {
+    name: "Services",
+    href: "/services",
+    children: [
+      {
+        name: "Artificial Intelligence",
+        href: "/services/artificial-intelligence",
+      },
+      { name: "DevOps as a Service", href: "/services/devops" },
+      {
+        name: "Enterprise Software Development",
+        href: "/services/enterprise-software-development",
+      },
+      {
+        name: "Managed Service Acumentation",
+        href: "/services/managed-service-acumentation",
+      },
+      { name: "MVP Factory", href: "/services/mvp-factory" },
+      { name: "QA as a Service", href: "/services/qa-as-a-service" },
+      {
+        name: "Search Engine Optimization",
+        href: "/services/search-engine-optimization",
+      },
+    ],
+  },
+  {
+    name: "Resources",
+    href: "/resources",
+    children: [
+      { name: "Blogs", href: "/resources/blogs" },
+      { name: "Case Studies", href: "/resources/case-studies" },
+    ],
+  },
 ];
 
 export function Navbar() {
