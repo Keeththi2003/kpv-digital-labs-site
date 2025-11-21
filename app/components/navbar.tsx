@@ -260,7 +260,7 @@ export function Navbar() {
               isOpen
                 ? "opacity-100 translate-y-0 scale-100"
                 : "opacity-0 -translate-y-8 scale-95 pointer-events-none"
-            }`}
+            } `}
           >
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-2xl">
               <div className="flex flex-col space-y-1">
@@ -310,8 +310,8 @@ export function Navbar() {
                           <Link
                             key={subitem.name}
                             href={subitem.href}
-                            className="block text-white/60 hover:text-white hover:bg-white/10 
-            rounded-lg px-3 py-2 text-sm transition-all duration-300 cursor-pointer"
+                            className="block text-white/80 hover:text-white hover:bg-white/10 
+            rounded-lg px-3 py-2 text-sm font-medium transition-all duration-300 cursor-pointer"
                             style={{
                               animationDelay: isOpen
                                 ? `${(index + 1) * 80 + 100 + subindex * 40}ms`
