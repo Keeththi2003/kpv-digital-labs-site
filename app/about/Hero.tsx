@@ -5,11 +5,11 @@ export function Hero() {
 
 
   return (
-    <section className="flex items-start justify-center px-4 pt-24 md:pt-32 pb-20 relative">
+    <section className="flex items-start justify-center px-4 pt-24 md:pt-32 pb-12 relative">
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 mt-8 md:mt-12 animate-fade-in-badge">
-          <span className="w-2 h-2 bg-white/60 rounded-full mr-2 animate-pulse"></span>
-          Clutch 1.0 By Cliste
+          <span className="w-2 h-2 bg-orange-500/80 rounded-full mr-2 animate-pulse"></span>
+          200+ Projects Delivered Worldwide
         </div>
         <div className="space-y-8">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight text-balance animate-fade-in-heading">
