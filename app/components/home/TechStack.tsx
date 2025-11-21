@@ -37,7 +37,7 @@ const Play = () => (
 
 export function TechStack() {
   return (
-    <section className="w-full flex flex-col items-center justify-center py-8 relative">
+    <section className="w-full flex flex-col items-center justify-center py-8 relative translate-y-8 transition-all duration-1000">
       <div className="mx-auto text-center relative z-10 animate-fade-in-hero">
         <div className="text-center mb-24 sm:mb-32 transition-all duration-1000 opacity-100 translate-y-8">
           <h2 className="fade-in-element opacity-100 translate-y-8 transition-all duration-1000 ease-out text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 tracking-tight text-balance">
