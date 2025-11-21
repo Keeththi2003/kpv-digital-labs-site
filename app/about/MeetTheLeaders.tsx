@@ -54,18 +54,7 @@ export default function MeetTheLeaders() {
       ref={sectionRef}
       className="relative py-4 px-4 sm:px-6 lg:px-8 mb-16"
     >
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-            backgroundSize: "80px 80px",
-          }}
-        />
-      </div>
+      
 
       <div className="relative max-w-6xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
@@ -89,8 +78,9 @@ export default function MeetTheLeaders() {
                   <Image
                     src="/1.jpeg"
                     alt="Profile"
-                    fill
-                    className="object-cover"
+                    width={64}
+                    height={64}
+                    className="object-cover w-full h-full"
                   />
                 </div>
                 <div className="flex flex-col  items-start justify-center">

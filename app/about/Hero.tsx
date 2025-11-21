@@ -54,7 +54,7 @@ export function Hero() {
                   </Link>
 
                   <a
-                    href="/case-studies"
+                    href="/resources/case-studies"
                     className="inline-flex whitespace-nowrap items-center px-4 py-2 rounded-full border border-white/20 text-white/90 font-medium text-sm hover:bg-white/5 transition-colors duration-200"
                   >
                     View case studies
