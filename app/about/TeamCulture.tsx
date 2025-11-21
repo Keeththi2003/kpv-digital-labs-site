@@ -31,31 +31,73 @@ export default function TeamCulture() {
     }, []);
   
   const pillars = [
-    { title: "Curiosity", desc: "We ask better questions and learn fast. We experiment, iterate, and share findings to continuously improve our products and processes.", color: "from-green-400 to-blue-500" },
-    { title: "Craftsmanship", desc: "Quality over shortcuts—every time. We take pride in well-tested, maintainable code and thoughtful design that scales.", color: "from-yellow-400 to-orange-500" },
-    { title: "Collaboration", desc: "Cross-functional teams, shared outcomes. We communicate openly, give constructive feedback, and align on goals to deliver impact together.", color: "from-purple-400 to-pink-500" },
-    { title: "Ownership", desc: "We take responsibility end-to-end for outcomes and follow through. We proactively remove blockers, measure results, and learn from failures.", color: "from-teal-400 to-cyan-500" },
-    { title: "Adaptability", desc: "We embrace change and respond quickly to new information. We balance long-term vision with pragmatic pivots when needed.", color: "from-indigo-400 to-purple-500" },
+    {
+      title: "Curiosity",
+      desc: "We ask better questions and learn fast. We experiment, iterate, and share findings to continuously improve our products and processes.",
+      color: "from-green-400 to-blue-500",
+      icon: (props: any) => (
+        <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      ),
+    },
+    {
+      title: "Craftsmanship",
+      desc: "Quality over shortcuts—every time. We take pride in well-tested, maintainable code and thoughtful design that scales.",
+      color: "from-yellow-400 to-orange-500",
+      icon: (props: any) => (
+        <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14 3l7 7-4 4-7-7" />
+          <path d="M7 10L3 14l4 4 4-4" />
+        </svg>
+      ),
+    },
+    {
+      title: "Collaboration",
+      desc: "Cross-functional teams, shared outcomes. We communicate openly, give constructive feedback, and align on goals to deliver impact together.",
+      color: "from-purple-400 to-pink-500",
+      icon: (props: any) => (
+        <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <circle cx="17" cy="7" r="4" />
+        </svg>
+      ),
+    },
+    {
+      title: "Ownership",
+      desc: "We take responsibility end-to-end for outcomes and follow through. We proactively remove blockers, measure results, and learn from failures.",
+      color: "from-teal-400 to-cyan-500",
+      icon: (props: any) => (
+        <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <path d="M9 12l2 2 4-4" />
+        </svg>
+      ),
+    },
+    {
+      title: "Adaptability",
+      desc: "We embrace change and respond quickly to new information. We balance long-term vision with pragmatic pivots when needed.",
+      color: "from-indigo-400 to-purple-500",
+      icon: (props: any) => (
+        <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="23 4 23 10 17 10" />
+          <polyline points="1 20 1 14 7 14" />
+          <path d="M3.51 9a9 9 0 0 1 6.49-6.49" />
+          <path d="M20.49 15a9 9 0 0 1-6.49 6.49" />
+        </svg>
+      ),
+    },
   ];
 
   return (
       <section
-        id="meetTheLeaders"
+        id="teamCulture"
         ref={sectionRef}
         className="relative py-4 px-4 sm:px-6 lg:px-8 mb-16"
       >
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="h-full w-full"
-            style={{
-              backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-              backgroundSize: "80px 80px",
-            }}
-          />
-        </div>
+       
   
         <div className="relative max-w-5xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
@@ -75,23 +117,10 @@ export default function TeamCulture() {
                 <div className="flex justify-start items-center gap-3 w-full">
                   <div className="flex-none w-16 h-16 rounded-full overflow-hidden relative ">
                     <div className={`w-full h-full rounded-full bg-linear-to-br ${l.color} flex items-center justify-center shadow-md`}>
-                      {l.title === "Curiosity" ? (
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35" />
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 17a6.5 6.5 0 100-13 6.5 6.5 0 000 13z" />
-                        </svg>
-                      ) : l.title === "Craftsmanship" ? (
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M14.7 13.3l-5.4 5.4a2 2 0 01-2.83 0l-1.4-1.4a2 2 0 010-2.83l5.4-5.4" />
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M20.5 7.5a2.1 2.1 0 00-2.97 0L16 9l1.5 1.5 1.53-1.53a2.1 2.1 0 000-2.97z" />
-                        </svg>
-                      ) : (
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M17 20v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2" />
-                          <circle cx="9" cy="7" r="4" strokeLinecap="round" strokeLinejoin="round" />
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M20 8a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                      )}
+                      {(() => {
+                        const Icon = l.icon;
+                        return Icon ? <Icon className="w-7 h-7 text-white" /> : null;
+                      })()}
                     </div>
                   </div>
                   <div className="flex flex-col  items-start justify-center">
