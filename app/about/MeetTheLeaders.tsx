@@ -1,5 +1,7 @@
 "use client";
 import { use, useEffect, useRef } from "react";
+import Image from "next/image";
+import { AlertTriangle } from "lucide-react";
 
 const leaders = [
   {
@@ -69,7 +71,7 @@ export default function PeopleInBusiness() {
       </div>
 
       <div className="relative max-w-7xl mx-auto">
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight text-balance">
             <span className="font-medium">Meet The Leaders</span>
           </h2>
@@ -83,17 +85,24 @@ export default function PeopleInBusiness() {
           {leaders.map((l) => (
             <div
               key={l.name}
-              className="flex gap-4 items-start bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg p-6 shadow-sm"
+              className="flex flex-col gap-4 items-start bg-white/5 backdrop-blur-md border border-white/10 rounded-xl sm:p-6 hover:bg-white/10 transition-all duration-300 p-6 shadow-sm"
             >
-              <div className="flex-none w-16 h-16 rounded-full bg-linear-to-br from-indigo-500 to-pink-500 text-white flex items-center justify-center font-bold text-xl">
-                {l.initials}
+              <div className="flex justify-start items-center gap-4 w-full">
+                <div className="flex-none w-16 h-16 rounded-full overflow-hidden relative">
+                  <Image
+                    src="/1.jpeg"
+                    alt="Profile"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex flex-col  items-start justify-center">
+                  <h3 className="text-lg font-semibold">{l.name}</h3>
+                  <p className="text-sm text-red-400  font-medium">{l.title}</p>
+                </div>
               </div>
               <div>
-                <h3 className="text-lg font-semibold">{l.name}</h3>
-                <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">
-                  {l.title}
-                </p>
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+                <p className="mt-2 text-sm text-gray-200 leading-relaxed">
                   {l.bio}
                 </p>
               </div>
