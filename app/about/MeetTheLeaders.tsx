@@ -5,22 +5,19 @@ import { AlertTriangle } from "lucide-react";
 
 const leaders = [
   {
-    initials: "AM",
     name: "Asha Mehra",
     title: "Founder & CEO",
-    bio: "Driven by product-led growth and a passion for sustainable tech.",
+    bio: "Asha is a product-driven founder with 15+ years building high-growth digital products. She combines strategic vision with hands-on execution, leading cross-functional teams to launch scalable platforms. Asha is focused on sustainable technology, long-term product-market fit, and mentoring the next generation of startup leaders.",
   },
   {
-    initials: "RK",
     name: "Ravi Kapoor",
     title: "CTO",
-    bio: "Builds resilient platforms and champions engineering excellence.",
+    bio: "Ravi architects resilient, scalable systems and has deep experience in cloud-native infrastructure, distributed systems, and observability. He drives engineering best practices, continuous delivery, and developer productivity, while fostering a culture of reliability, security, and technical excellence.",
   },
   {
-    initials: "LS",
     name: "Lina Shah",
     title: "Head of Design",
-    bio: "Crafts human-centered experiences across web and mobile.",
+    bio: "Lina leads design strategy and user research to create intuitive, accessible experiences across web and mobile. She blends human-centered design, visual storytelling, and brand thinking to craft cohesive product ecosystems, collaborating closely with product and engineering to turn insights into impactful designs.",
   },
 ];
 
@@ -70,7 +67,7 @@ export default function MeetTheLeaders() {
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight text-balance">
             <span className="font-medium">Meet The Leaders</span>
@@ -98,11 +95,11 @@ export default function MeetTheLeaders() {
                 </div>
                 <div className="flex flex-col  items-start justify-center">
                   <h3 className="text-lg font-semibold">{l.name}</h3>
-                  <p className="text-sm text-red-400  font-medium">{l.title}</p>
+                  <p className="text-sm text-white/70">{l.title}</p>
                 </div>
               </div>
               <div>
-                <p className="mt-2 text-sm text-gray-200 leading-relaxed">
+                <p className="mt-2 text-md text-gray-200 leading-relaxed">
                   {l.bio}
                 </p>
               </div>
