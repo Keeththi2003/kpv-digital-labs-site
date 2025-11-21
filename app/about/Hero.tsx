@@ -22,10 +22,10 @@ export function Hero() {
            
 
             {/* Desktop version - single line */}
-            <div className=" sm:flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 max-w-5xl text-left">
+            <div className=" sm:flex items-center  justify-center gap-2 sm:gap-3 flex-wrap">
+              <div className="flex flex-col sm:flex-row items-center sm:items-center gap-8 max-w-5xl text-left">
                 <div className="text-slate-300 text-base text-md sm:text-lg space-y-3">
-                  <p className="leading-relaxed">
+                  <p className="leading-relaxed text-center md:text-left">
                     We design and build production-ready web and mobile products for ambitious teams combining product strategy, elegant design and robust engineering to ship fast and scale with confidence.
                   </p>
 
@@ -67,7 +67,7 @@ export function Hero() {
           </div>
 
           {/* Video placeholder */}
-          <div className="max-w-xs sm:max-w-3xl mx-auto px-6 sm:px-0 mb-8 animate-fade-in-buttons">
+          <div className="max-w-2xl sm:max-w-4xl mx-auto px-6 sm:px-0 mb-8 animate-fade-in-buttons">
             <div className="relative w-full aspect-video bg-white/5 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl group cursor-pointer hover:bg-white/10 hover:border-white/30 transition-all duration-500">
               <div className="absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-white/5"></div>
 
