@@ -24,7 +24,7 @@ const leaders = [
   },
 ];
 
-export default function PeopleInBusiness() {
+export default function MeetTheLeaders() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -53,9 +53,9 @@ export default function PeopleInBusiness() {
 
   return (
     <section
-      id="peopleInBuisness"
+      id="meetTheLeaders"
       ref={sectionRef}
-      className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8"
+      className="relative py-4 px-4 sm:px-6 lg:px-8 mb-16"
     >
       <div className="absolute inset-0 opacity-10">
         <div
@@ -71,7 +71,7 @@ export default function PeopleInBusiness() {
       </div>
 
       <div className="relative max-w-7xl mx-auto">
-        <div className="text-center mb-8 md:mb-16">
+        <div className="text-center mb-8 md:mb-12">
           <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight text-balance">
             <span className="font-medium">Meet The Leaders</span>
           </h2>
