@@ -186,12 +186,12 @@ export function Navbar() {
                       </button>
                     )}
                     {item.submenu && (
-                      <div className="absolute px-2 mt-5 max-w-fit bg-white/20 backdrop-blur-md border border-white/20 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
+                      <div className="absolute px-2 mt-5 max-w-fit bg-black/50 backdrop-blur-5xl border border-white/20 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
                         {item.submenu.map((subitem) => (
                           <Link
                             key={subitem.name}
                             href={subitem.href}
-                            className="block px-4 py-2 rounded-lg whitespace-nowrap text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+                            className="block px-4 py-2 rounded-lg whitespace-nowrap  text-white hover:text-black/90 hover:bg-white/70 transition-colors"
                           >
                             {subitem.name}
                           </Link>
