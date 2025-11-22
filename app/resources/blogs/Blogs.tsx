@@ -11,8 +11,8 @@ const blogs = [
         description:
             "Practical guide to building accessible, keyboard-friendly components in React — ARIA, focus management, and testing strategies.",
         category: "Frontend",
-        image: "/bl1.jpeg",
-        href: "/blogs/accessible-react",
+        image: "/bl1.png",
+        href: "#",
     },
     {
         id: "b2",
@@ -21,7 +21,7 @@ const blogs = [
             "Proven patterns for designing scalable, maintainable Node.js APIs — pagination, caching, rate limiting, and observability.",
         category: "Backend",
         image: "/bl2.jpeg",
-        href: "/blogs/scaling-node-apis",
+        href: "#",
     },
     {
         id: "b3",
@@ -30,7 +30,7 @@ const blogs = [
             "How to use analytics and experimentation to prioritize features, validate hypotheses, and reduce time to impact.",
         category: "Product",
         image: "/bl3.jpeg",
-        href: "/blogs/data-driven-product",
+        href: "#",
     },
     {
         id: "b4",
@@ -38,8 +38,8 @@ const blogs = [
         description:
             "Establishing tokens, components, and governance to keep UI consistent across teams and platforms.",
         category: "Design",
-        image: "/bl4.jpeg",
-        href: "/blogs/design-systems-scale",
+        image: "/bl4.png",
+        href: "#",
     },
     {
         id: "b5",
@@ -48,7 +48,7 @@ const blogs = [
             "Practical observability: metrics, tracing, and logs to reduce MTTR and improve system understanding.",
         category: "DevOps",
         image: "/bl5.jpeg",
-        href: "/blogs/observability-modern-apps",
+        href: "#",
     },
     {
         id: "b6",
@@ -56,8 +56,8 @@ const blogs = [
         description:
             "Patterns for reliable sync, local-first data, and graceful degradation when network connectivity is poor.",
         category: "Mobile",
-        image: "/bl6.jpeg",
-        href: "/blogs/offline-first-mobile",
+        image: "/bl6.png",
+        href: "#",
     },
     {
         id: "b7",
@@ -66,7 +66,7 @@ const blogs = [
             "Techniques to reduce render cost, avoid unnecessary work, and scale large React applications efficiently.",
         category: "Frontend",
         image: "/bl7.jpeg",
-        href: "/blogs/optimizing-react-performance",
+        href: "#",
     },
     {
         id: "b8",
@@ -74,8 +74,8 @@ const blogs = [
         description:
             "When to use events, designing idempotent consumers, and patterns for eventual consistency.",
         category: "Backend",
-        image: "/bl8.jpeg",
-        href: "/blogs/event-driven-architectures",
+        image: "/bl8.png",
+        href: "#",
     },
     {
         id: "b9",
@@ -84,7 +84,7 @@ const blogs = [
             "How to identify ML opportunities, measure impact, and ship models that drive product outcomes.",
         category: "Data",
         image: "/bl9.jpeg",
-        href: "/blogs/ml-in-product",
+        href: "#",
     },
 ];
 const categories = ["All", ...Array.from(new Set(blogs.map((b) => b.category)))];
@@ -142,7 +142,7 @@ export default function Blogs() {
             <div className="relative max-w-7xl mx-auto flex  flex-col items-center">
                 <div className="text-center mb-8 md:mb-12">
                     <div className="w-full flex flex-col items-center gap-8 mt-8">
-                        <div className="inline-flex items-center bg-white/3 ring-1 ring-white/6 rounded-full  px-3 py-1">
+                        <div className="inline-flex items-center bg-white/3 ring-1 ring-white/6 rounded-full  px-3 py-1 animate-fade-in-buttons">
                             {categories.map((cat, idx) => {
                                 const id = `cat-${cat.toLowerCase().replace(/\s+/g, "-")}`;
                                 return (
