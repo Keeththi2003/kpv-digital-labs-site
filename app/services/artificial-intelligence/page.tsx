@@ -1,8 +1,8 @@
 import { CTASection } from "@/app/components/CTASection";
-import { Hero } from "@/app/services/artificial-intelligence/Hero";
 import FAQ from "@/app/components/FAQ";
 import WorkSteps from "@/app/components/WorkSteps";
 import { ServiceHero } from "@/app/components/ServiceHero";
+import Projects from "@/app/components/Projects";
 
 const heroProps = {
   title: "Artificial Intelligence Consulting Services",
@@ -94,6 +94,7 @@ export default function Home() {
         steps={workSteps.steps}
       />
       <FAQ faqs={faqs.faqs} subtitle={faqs.subtitle} />
+      <Projects/>
       <CTASection />
     </div>
   );
