@@ -32,6 +32,8 @@ const navigation = [
       { name: "Search Engine Optimization", href: "/services/seo" },
     ],
   },
+  { name: "Careers", href: "/careers" },
+
   {
     name: "Resources",
     href: "/resources",
