@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
-import StatCard from "./StatCard";
+import StatCard from "../StatCard";
 
 
 export function TechStack() {
