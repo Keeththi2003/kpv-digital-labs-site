@@ -84,7 +84,7 @@ export default function WorkSteps() {
             {steps.map((step, index) => (
               <article
                 key={`step-${index} `}
-                className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/3 rounded-xl pl-20 p-6 border border-white/5"
+                className="fade-in-element opacity-0 translate-y-8 transition-all duration-500 ease-out bg-white/3 rounded-xl pl-20 p-6 border border-white/5"
               >
                 <div className="flex items-center gap-4">
                   <div className="absolute top-0 left-0 h-full w-16 felx flex-col rounded-xl rounded-r-none bg-linear-to-br from-blue-500 to-teal-400 flex items-center justify-center text-white font-medium text-lg">
