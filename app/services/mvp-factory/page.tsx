@@ -11,7 +11,8 @@ const heroProps = {
 };
 const subServicesProps = {
   title: "Why Choose SwivelTech's MVP Factory?",
-  subtitle: "Practical, secure, and scalable capabilities tailored to your business.",
+  subtitle:
+    "Practical, secure, and scalable capabilities tailored to your business — from rapid prototyping and user validation to production-ready deployments, backed by hands-on expertise and measurable outcomes.",
   services: [
     {
       title: "Rapid Time to Market",
