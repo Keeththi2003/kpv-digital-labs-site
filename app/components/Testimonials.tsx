@@ -71,7 +71,7 @@ export default function Testimonials() {
       {" "}
       <div className="relative max-w-7xl mx-auto text-center mb-12 md:mb-16">
         {" "}
-        <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight">
+        <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 tracking-tight">
           {" "}
           <span className="font-medium">What Clients Say</span>{" "}
         </h2>{" "}
