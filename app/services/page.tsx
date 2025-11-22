@@ -3,6 +3,8 @@ import { CTASection } from "@/app/components/CTASection";
 import {Hero} from "@/app/services/Hero";
 import {Stats} from "./Stats"
 import Services from "@/app/services/Services";
+import Projects from "@/app/how-we-work/Projects"; 
+import Testimonials from "@/app/services/Testimonials";
 
 export default function Home() {
   return (
@@ -10,6 +12,8 @@ export default function Home() {
       <Hero/>
       <Stats/>
       <Services/>
+      <Projects/>
+      <Testimonials/>
       <CTASection/>
     </div>
   );
