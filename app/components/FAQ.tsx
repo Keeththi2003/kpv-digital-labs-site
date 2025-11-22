@@ -47,7 +47,7 @@ export default function FAQ({faqs,subtitle}: faqProps) {
     >
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight text-balance">
+          <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-3xl md:text-4xl lg:text-5xl font-light text-white mb-8 tracking-tight text-balance">
             <span className="font-medium">FAQs</span>
           </h2>
           <div>
