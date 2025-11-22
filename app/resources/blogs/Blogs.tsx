@@ -4,32 +4,37 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 
-const projects = [
-  {
-    id: "p1",
-    title: "Product Discovery Platform",
-    description:
-      "Research-driven platform that helped a fintech startup validate market fit and accelerate MVP delivery.",
-    image: "/pr1.jpeg",
-    href: "#",
-  },
-  {
-    id: "p2",
-    title: "Scalable Commerce API",
-    description:
-      "Headless commerce API built for high throughput, reducing latency and improving checkout conversion.",
-    image: "/pr2.png",
-    href: "#",
-  },
-  {
-    id: "p3",
-    title: "Enterprise Data Pipeline",
-    description:
-      "Robust ETL pipeline that unified analytics and slashed reporting time from hours to minutes.",
-    image: "/pr3.jpeg",
-    href: "#",
-  },
+const blogs = [
+    {
+        id: "b1",
+        title: "Crafting Accessible React Components",
+        description:
+            "Practical guide to building accessible, keyboard-friendly components in React — ARIA, focus management, and testing strategies.",
+        category: "Frontend",
+        image: "/bl1.jpeg",
+        href: "/blogs/accessible-react",
+    },
+    {
+        id: "b2",
+        title: "Scaling Node APIs: Practical Patterns",
+        description:
+            "Proven patterns for designing scalable, maintainable Node.js APIs — pagination, caching, rate limiting, and observability.",
+        category: "Backend",
+        image: "/bl2.jpeg",
+        href: "/blogs/scaling-node-apis",
+    },
+    {
+        id: "b3",
+        title: "Data-Driven Product Decisions",
+        description:
+            "How to use analytics and experimentation to prioritize features, validate hypotheses, and reduce time to impact.",
+        category: "Product",
+        image: "/bl3.jpeg",
+        href: "/blogs/data-driven-product",
+    },
 ];
+                const categories = ["All", ...Array.from(new Set(blogs.map((b) => b.category)))];
+
 
 export default function Blogs() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -70,13 +75,65 @@ export default function Blogs() {
             <span className="font-medium">Blog Categories</span>
           </h2>
           <div>
+            {(() => {
+                const categories = ["All", ...Array.from(new Set(blogs.map((b) => b.category)))];
+
+                return (
+                    <div className="w-full flex flex-col items-center gap-4">
+                        <div className="inline-flex items-center bg-white/3 ring-1 ring-white/6 rounded-full p-1">
+                            {categories.map((cat, idx) => {
+                                const id = `cat-${cat.toLowerCase().replace(/\s+/g, "-")}`;
+                                return (
+                                    <div key={id} className="relative">
+                                        <input
+                                            id={id}
+                                            name="blog-category"
+                                            type="radio"
+                                            defaultChecked={idx === 0}
+                                            className="sr-only cat-input"
+                                        />
+                                        <label
+                                            htmlFor={id}
+                                            className="cursor-pointer select-none px-4 py-2 text-sm md:text-base rounded-full text-white/80 transition-all duration-200 flex items-center gap-2"
+                                            aria-pressed={idx === 0}
+                                        >
+                                            {cat}
+                                        </label>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        <style>{`
+                            input.cat-input:checked + label {
+                                background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+                                color: #fff;
+                                box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+                                transform: translateY(-2px);
+                            }
+
+                            /* focus-visible for keyboard users */
+                            input.cat-input:focus-visible + label {
+                                outline: 2px solid rgba(255,255,255,0.08);
+                                outline-offset: 2px;
+                            }
+
+                            /* small hover/active polish */
+                            label:hover {
+                                color: #fff;
+                                transform: translateY(-1px);
+                            }
+                        `}</style>
+                    </div>
+                );
+            })()}
             
           </div>
         </div>
 
         <div className="max-w-5xl mx-auto ">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((p, i) => (
+            {blogs.map((p, i) => (
               <article
                 key={p.id}
                 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out group rounded-2xl overflow-hidden bg-white/3 ring-1 ring-white/6"
