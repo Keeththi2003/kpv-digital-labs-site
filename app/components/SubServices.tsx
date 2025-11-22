@@ -5,7 +5,7 @@ import Image from "next/image";
 type service = {
   title: string;
   disc: string;
-  icon: string;
+  icon: React.ReactNode;
 };
 
 type SubServiceProps = {
@@ -63,8 +63,8 @@ export default function SubServices({title,subtitle,services}:SubServiceProps) {
               className="flex flex-col gap-4 items-start bg-white/5 backdrop-blur-md border border-white/10 rounded-xl sm:p-6 hover:bg-white/10 transition-all duration-300 p-6 shadow-sm"
             >
               <div className="flex justify-start items-center gap-3 w-full">
-                <div className="flex-none w-16 h-16 rounded-full overflow-hidden relative ">
-                  <div className="w-12 h-12 flex-none rounded-lg bg-white/5 flex items-center justify-center text-indigo-500">
+                <div className="flex-none w-16 h-16 overflow-hidden relative ">
+                  <div className="w-12 h-12 flex-none rounded-lg bg-white/5 flex items-center justify-center text-green-400">
                     {service.icon}
                   </div>
                 </div>
