@@ -10,7 +10,7 @@ const projects = [
     title: "Product Discovery Platform",
     description:
       "Research-driven platform that helped a fintech startup validate market fit and accelerate MVP delivery.",
-    image: "pr1.jpeg",
+    image: "/pr1.jpeg",
     href: "#",
   },
   {
