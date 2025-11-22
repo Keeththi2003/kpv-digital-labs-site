@@ -4,7 +4,7 @@ import {Hero} from "@/app/services/Hero";
 import {Stats} from "./Stats"
 import Services from "@/app/services/Services";
 import Projects from "@/app/how-we-work/Projects"; 
-import Testimonials from "@/app/services/Testimonials";
+import Testimonials from "@/app/components/Testimonials";
 
 export default function Home() {
   return (
