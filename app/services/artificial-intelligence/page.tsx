@@ -3,12 +3,26 @@ import FAQ from "@/app/components/FAQ";
 import WorkSteps from "@/app/components/WorkSteps";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import Projects from "@/app/components/Projects";
+import SubServices from "@/app/components/SubServices";
 
 const heroProps = {
   title: "Artificial Intelligence Consulting Services",
   subtitle:
     "We are a team of experts across multiple tech disciplines eager to provide a well-rounded custom artificial intelligence consulting services to help you meet your business needs. We aim to craft top-tier solutions that combine advanced technology with detailed insights to provide a real-world impact. Whether it’s streamlining operations, enhancing customer engagement, or unlocking new revenue streams, our data driven AI expertise ensures measurable success.",
 };
+
+const subServicesProps ={
+  title:"",
+  subtitle:"",
+  services:[
+    {
+      title:"",
+      disc:"",
+      icon:""
+    }
+  ]
+}
+
 const faqs = {
   subtitle:
     "Answers to common questions about our AI services, integration, security, and pricing.",
@@ -88,6 +102,7 @@ export default function Home() {
   return (
     <div className="flex flex-col  justify-center  font-sans dark:bg-black ">
       <ServiceHero title={heroProps.title} subtitle={heroProps.subtitle} />
+      <SubServices title={subServicesProps.title} subtitle={subServicesProps.subtitle} services={subServicesProps.services}/>
       <WorkSteps
         title={workSteps.title}
         subtitle={workSteps.subtitle}
