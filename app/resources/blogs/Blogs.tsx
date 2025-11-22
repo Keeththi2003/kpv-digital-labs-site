@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 const blogs = [
@@ -32,55 +32,117 @@ const blogs = [
         image: "/bl3.jpeg",
         href: "/blogs/data-driven-product",
     },
+    {
+        id: "b4",
+        title: "Design Systems at Scale",
+        description:
+            "Establishing tokens, components, and governance to keep UI consistent across teams and platforms.",
+        category: "Design",
+        image: "/bl4.jpeg",
+        href: "/blogs/design-systems-scale",
+    },
+    {
+        id: "b5",
+        title: "Observability for Modern Apps",
+        description:
+            "Practical observability: metrics, tracing, and logs to reduce MTTR and improve system understanding.",
+        category: "DevOps",
+        image: "/bl5.jpeg",
+        href: "/blogs/observability-modern-apps",
+    },
+    {
+        id: "b6",
+        title: "Building Offline-First Mobile Apps",
+        description:
+            "Patterns for reliable sync, local-first data, and graceful degradation when network connectivity is poor.",
+        category: "Mobile",
+        image: "/bl6.jpeg",
+        href: "/blogs/offline-first-mobile",
+    },
+    {
+        id: "b7",
+        title: "Optimizing React Performance",
+        description:
+            "Techniques to reduce render cost, avoid unnecessary work, and scale large React applications efficiently.",
+        category: "Frontend",
+        image: "/bl7.jpeg",
+        href: "/blogs/optimizing-react-performance",
+    },
+    {
+        id: "b8",
+        title: "Event-Driven Architectures in Practice",
+        description:
+            "When to use events, designing idempotent consumers, and patterns for eventual consistency.",
+        category: "Backend",
+        image: "/bl8.jpeg",
+        href: "/blogs/event-driven-architectures",
+    },
+    {
+        id: "b9",
+        title: "Applying Machine Learning to Product",
+        description:
+            "How to identify ML opportunities, measure impact, and ship models that drive product outcomes.",
+        category: "Data",
+        image: "/bl9.jpeg",
+        href: "/blogs/ml-in-product",
+    },
 ];
-                const categories = ["All", ...Array.from(new Set(blogs.map((b) => b.category)))];
-
+const categories = ["All", ...Array.from(new Set(blogs.map((b) => b.category)))];
 
 export default function Blogs() {
-  const sectionRef = useRef<HTMLElement>(null);
+    const sectionRef = useRef<HTMLElement | null>(null);
+    const [visibleCount, setVisibleCount] = useState<number>(6);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const elements = entry.target.querySelectorAll(".fade-in-element");
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const elements = entry.target.querySelectorAll(".fade-in-element");
+                        elements.forEach((element, index) => {
+                            setTimeout(() => {
+                                element.classList.add("animate-fade-in-up");
+                            }, index * 300);
+                        });
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
+    // optional: when more items are shown, run fade-in on newly revealed cards
+    useEffect(() => {
+        // small delay to let DOM update
+        const t = setTimeout(() => {
+            const el = sectionRef.current;
+            if (!el) return;
+            const elements = el.querySelectorAll(".fade-in-element.opacity-0");
             elements.forEach((element, index) => {
-              setTimeout(() => {
-                element.classList.add("animate-fade-in-up");
-              }, index * 300);
+                setTimeout(() => element.classList.add("animate-fade-in-up"), index * 120);
             });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+        }, 50);
+        return () => clearTimeout(t);
+    }, [visibleCount]);
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    const showMore = () => setVisibleCount(blogs.length);
+    const showLess = () => setVisibleCount(6);
 
-    return () => observer.disconnect();
-  }, []);
+    const visibleBlogs = blogs.slice(0, visibleCount);
+    const hasMore = visibleCount < blogs.length;
 
-  return (
-    <section
-      id="blogs"
-      ref={sectionRef}
-      className=" pt-16 pb-16 px-4 sm:px-6 lg:px-8"
-    >
-      <div className="relative max-w-7xl mx-auto flex  flex-col items-center">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl md:text-2xl lg:text-3xl font-light text-white mb-8 tracking-tight text-balance">
-            <span className="font-medium">Blog Categories</span>
-          </h2>
-          <div>
-            {(() => {
-                const categories = ["All", ...Array.from(new Set(blogs.map((b) => b.category)))];
-
-                return (
-                    <div className="w-full flex flex-col items-center gap-4">
-                        <div className="inline-flex items-center bg-white/3 ring-1 ring-white/6 rounded-full p-1">
+    return (
+        <section id="blogs" ref={sectionRef} className="pb-16 px-4 sm:px-6 lg:px-8">
+            <div className="relative max-w-7xl mx-auto flex  flex-col items-center">
+                <div className="text-center mb-8 md:mb-12">
+                    <div className="w-full flex flex-col items-center gap-8 mt-8">
+                        <div className="inline-flex items-center bg-white/3 ring-1 ring-white/6 rounded-full  px-3 py-1">
                             {categories.map((cat, idx) => {
                                 const id = `cat-${cat.toLowerCase().replace(/\s+/g, "-")}`;
                                 return (
@@ -94,7 +156,7 @@ export default function Blogs() {
                                         />
                                         <label
                                             htmlFor={id}
-                                            className="cursor-pointer select-none px-4 py-2 text-sm md:text-base rounded-full text-white/80 transition-all duration-200 flex items-center gap-2"
+                                            className="cursor-pointer select-none px-6 py-2 text-md md:text-base rounded-full text-white/80 transition-all duration-200 flex items-center gap-2"
                                             aria-pressed={idx === 0}
                                         >
                                             {cat}
@@ -106,83 +168,82 @@ export default function Blogs() {
 
                         <style>{`
                             input.cat-input:checked + label {
-                                background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+                                background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
                                 color: #fff;
-                                box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-                                transform: translateY(-2px);
                             }
-
-                            /* focus-visible for keyboard users */
                             input.cat-input:focus-visible + label {
                                 outline: 2px solid rgba(255,255,255,0.08);
                                 outline-offset: 2px;
                             }
-
-                            /* small hover/active polish */
                             label:hover {
                                 color: #fff;
                                 transform: translateY(-1px);
                             }
                         `}</style>
                     </div>
-                );
-            })()}
-            
-          </div>
-        </div>
-
-        <div className="max-w-5xl mx-auto ">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {blogs.map((p, i) => (
-              <article
-                key={p.id}
-                className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out group rounded-2xl overflow-hidden bg-white/3 ring-1 ring-white/6"
-                aria-labelledby={`proj-${p.id}-title`}
-              >
-                <div className="relative h-48 sm:h-56 lg:h-44 overflow-hidden bg-zinc-900">
-                  <img
-                    src={p.image}
-                    alt={p.title}
-                    className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </div>
 
-                <div className="p-6">
-                  <h3
-                    id={`proj-${p.id}-title`}
-                    className="text-xl md:text-2xl font-medium text-white mb-2"
-                  >
-                    {p.title}
-                  </h3>
-                  <p className="text-white/80 text-sm md:text-base mb-4 leading-relaxed">
-                    {p.description}
-                  </p>
-                  <a
-                    href={p.href}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium text-white border border-white/10 bg-white/3 hover:bg-white/6 transition"
-                    aria-label={`Learn more about ${p.title}`}
-                  >
-                    Learn more
-                    <ArrowRight className="w-4 h-4 opacity-90" />
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
+                <div className="max-w-5xl mx-auto ">
+                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        {visibleBlogs.map((p) => (
+                            <article
+                                key={p.id}
+                                className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out group rounded-2xl overflow-hidden bg-white/3 ring-1 ring-white/6"
+                                aria-labelledby={`proj-${p.id}-title`}
+                            >
+                                <div className="relative h-48 sm:h-56 lg:h-44 overflow-hidden bg-zinc-900">
+                                    <img
+                                        src={p.image}
+                                        alt={p.title}
+                                        className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                                </div>
 
-        <Link
-          href={"#"}
-          className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out w-fit mt-12 bg-white hover:bg-gray-300 text-background font-medium px-10 py-3 rounded-full flex items-center  hover:scale-105 hover:shadow-lg cursor-pointer group"
-        >
-          <span className="mr-2">Learn More</span>
-          <ArrowRight
-            size={16}
-            className="transition-transform duration-300 group-hover:translate-x-1"
-          />
-        </Link>
-      </div>
-    </section>
-  );
+                                <div className="p-6">
+                                    <h3
+                                        id={`proj-${p.id}-title`}
+                                        className="text-xl md:text-2xl font-medium text-white mb-2"
+                                    >
+                                        {p.title}
+                                    </h3>
+                                    <p className="text-white/80 text-sm md:text-base mb-4 leading-relaxed">
+                                        {p.description}
+                                    </p>
+                                    <a
+                                        href={p.href}
+                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium text-white border border-white/10 bg-white/3 hover:bg-white/6 transition"
+                                        aria-label={`Learn more about ${p.title}`}
+                                    >
+                                        Learn more
+                                        <ArrowRight className="w-4 h-4 opacity-90" />
+                                    </a>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="w-fit mt-12">
+                    {hasMore ? (
+                        <button
+                            onClick={showMore}
+                            className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/6 hover:bg-white/8 text-white font-medium px-6 py-2 rounded-full flex items-center cursor-pointer"
+                            aria-label="Load more blogs"
+                        >
+                            <span className="mr-2">Load more</span>
+                        </button>
+                    ) : (
+                        <button
+                            onClick={showLess}
+                            className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/6 hover:bg-white/8 text-white font-medium px-6 py-2 rounded-full flex items-center cursor-pointer"
+                            aria-label="Show less blogs"
+                        >
+                            Show less
+                        </button>
+                    )}
+                </div>
+            </div>
+        </section>
+    );
 }
