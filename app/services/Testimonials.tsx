@@ -7,19 +7,19 @@ const testimonials = [
     name: "Jane Doe, CEO of TechCorp",
     quote:
       "KPV Digital Labs transformed our software development process. Their expertise and dedication helped us launch our product ahead of schedule.",
-    image: "/jane-doe.jpg",
+    image: "/1.jpeg",
   },
   {
     name: "John Smith, CTO of InnovateX",
     quote:
       "The team at KPV Digital Labs is exceptional. They understood our vision and delivered a solution that exceeded our expectations.",
-    image: "/john-smith.jpg",
+    image: "/2.jpeg",
   },
   {
     name: "Emily Johnson, Product Manager at SoftSolutions",
     quote:
       "KPV Digital Labs provided exceptional service and delivered a product that perfectly met our needs.",
-    image: "/emily-johnson.jpg",
+    image: "/3.jpeg",
   },
 ];
 
@@ -30,32 +30,61 @@ export default function Testimonials() {
   useEffect(() => {
     slideInterval.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 10000);
+    }, 6000);
 
     return () => {
       if (slideInterval.current) clearInterval(slideInterval.current);
     };
   }, []);
 
+   const sectionRef = useRef<HTMLElement>(null);
+  
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const elements = entry.target.querySelectorAll(".fade-in-element");
+              elements.forEach((element, index) => {
+                setTimeout(() => {
+                  element.classList.add("animate-fade-in-up");
+                }, index * 300);
+              });
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+  
+      if (sectionRef.current) {
+        observer.observe(sectionRef.current);
+      }
+  
+      return () => observer.disconnect();
+    }, []);
+
   return (
-    <section className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8">
+    <section 
+    id="testmonials"
+    ref={sectionRef}
+    className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8">
       {" "}
       <div className="relative max-w-7xl mx-auto text-center mb-12 md:mb-16">
         {" "}
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight">
+        <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight">
           {" "}
           <span className="font-medium">What Clients Say</span>{" "}
         </h2>{" "}
-        <p className="text-lg text-white/90 mb-4">
+        <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-lg text-white/90 mb-4">
           Trusted partners for mission‑critical software{" "}
         </p>{" "}
-        <p className="text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
+        <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
           We partner with product and engineering teams to design, build, and
           operate resilient systems that drive measurable business outcomes.{" "}
         </p>{" "}
       </div>
       {/* Slider */}
-      <div className="relative max-w-5xl mx-auto overflow-hidden">
+      <div className="relative fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out max-w-5xl mx-auto overflow-hidden">
         <div
           className="flex transition-transform duration-700 ease-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -68,7 +97,7 @@ export default function Testimonials() {
                   alt={t.name}
                   className="w-20 h-20 rounded-full mb-4 object-cover"
                 />
-                <p className="text-white/90 mb-4">{t.quote}</p>
+                <p className="text-white/90 italic mb-4">{`"${t.quote}"`}</p>
                 <h3 className="text-white font-semibold">{t.name}</h3>
               </div>
             </div>
@@ -76,7 +105,7 @@ export default function Testimonials() {
         </div>
       </div>
       {/* Dots Navigation */}
-      <div className="flex justify-center mt-8 space-x-3">
+      <div className="flex justify-center mt-16 space-x-3">
         {testimonials.map((_, idx) => (
           <button
             key={idx}
