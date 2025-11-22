@@ -3,6 +3,7 @@ import { HeroSection } from "./components/home/hero";
 import { TechStack } from "./components/home/TechStack";
 import { CTASection } from "./components/CTASection";
 import { TrustedBy } from "./components/home/TrustedBy";
+import Testimonials from "./components/Testimonials";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection/>
       <TechStack></TechStack>
       <TrustedBy/>
+      <Testimonials/>
       <CTASection/>
     </div>
   );
