@@ -394,17 +394,17 @@
 }
 
 .animate-fade-in-badge {
-  animation: fade-in-badge 0.8s ease-out 0.4s forwards;
+  animation: fade-in-badge 0.8s ease-out 0.2s forwards;
   opacity: 0;
 }
 
 .animate-fade-in-heading {
-  animation: fade-in-heading 1s ease-out 0.6s forwards;
+  animation: fade-in-heading 1s ease-out 0.3s forwards;
   opacity: 0;
 }
 
 .animate-fade-in-subheading {
-  animation: fade-in-subheading 0.8s ease-out 0.8s forwards;
+  animation: fade-in-subheading 0.8s ease-out 0.5s forwards;
   opacity: 0;
 }
 
