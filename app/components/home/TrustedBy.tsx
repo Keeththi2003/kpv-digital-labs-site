@@ -83,14 +83,14 @@ export function TrustedBy() {
     <section
       id="trustedBy"
       ref={sectionRef}
-      className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8"
+      className="relative pt-16 px-4 sm:px-6 lg:px-8"
     >
      
     
 
       <div className="relative max-w-7xl mx-auto">
         {/* Header Section - Keep as user loves it */}
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-6 md:mb-10">
           <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 tracking-tight text-balance">
             <span className="font-medium">Trusted By</span>
           </h2>
@@ -120,12 +120,12 @@ export function TrustedBy() {
             <TrustedByColumn
               trustedBy={trustedBy.slice(3, 7)}
               duration={12}
-              className="flex-1 hidden md:block"
+              className="flex-1  md:block"
             />
             <TrustedByColumn
               trustedBy={trustedBy.slice(4, 7)}
               duration={18}
-              className="flex-1 hidden lg:block"
+              className="flex-1  lg:block"
             />
           </div>
         </div>
