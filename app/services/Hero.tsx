@@ -57,7 +57,7 @@ const sectionRef = useRef<HTMLElement>(null);
           </div>
           <Link
             href={"/contact"}
-            className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out w-fit  bg-white hover:bg-gray-300 text-background font-medium px-10 py-3 rounded-full flex items-center  hover:scale-105 hover:shadow-lg cursor-pointer group"
+            className=" w-fit  bg-white hover:bg-gray-300 text-background font-medium px-10 py-3 rounded-full flex items-center  hover:scale-105 hover:shadow-lg cursor-pointer group animate-fade-in-buttons"
           >
             <span className="mr-2">Book a Call</span>
             <ArrowRight
