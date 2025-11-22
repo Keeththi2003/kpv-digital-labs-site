@@ -90,7 +90,7 @@ export function TrustedBy() {
 
       <div className="relative max-w-7xl mx-auto">
         {/* Header Section - Keep as user loves it */}
-        <div className="text-center mb-6 md:mb-10">
+        <div className="text-center mb-6 ">
           <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 tracking-tight text-balance">
             <span className="font-medium">Trusted By</span>
           </h2>
