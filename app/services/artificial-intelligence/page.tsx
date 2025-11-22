@@ -2,7 +2,13 @@ import { CTASection } from "@/app/components/CTASection";
 import { Hero } from "@/app/services/artificial-intelligence/Hero";
 import FAQ from "@/app/components/FAQ";
 import WorkSteps from "@/app/components/WorkSteps";
+import { ServiceHero } from "@/app/components/ServiceHero";
 
+const heroProps = {
+  title: "Artificial Intelligence Consulting Services",
+  subtitle:
+    "We are a team of experts across multiple tech disciplines eager to provide a well-rounded custom artificial intelligence consulting services to help you meet your business needs. We aim to craft top-tier solutions that combine advanced technology with detailed insights to provide a real-world impact. Whether it’s streamlining operations, enhancing customer engagement, or unlocking new revenue streams, our data driven AI expertise ensures measurable success.",
+};
 const faqs = {
   subtitle:
     "Answers to common questions about our AI services, integration, security, and pricing.",
@@ -48,38 +54,32 @@ const workSteps = {
     {
       step: "1",
       title: "Discovery & Strategy",
-      disc:
-        "Define business objectives, success metrics, technical constraints, and a phased project roadmap including feasibility and ROI assessment.",
+      disc: "Define business objectives, success metrics, technical constraints, and a phased project roadmap including feasibility and ROI assessment.",
     },
     {
       step: "2",
       title: "Data Preparation & Engineering",
-      disc:
-        "Collect, clean, label, and transform data; build scalable data pipelines and storage that ensure quality and reproducibility.",
+      disc: "Collect, clean, label, and transform data; build scalable data pipelines and storage that ensure quality and reproducibility.",
     },
     {
       step: "3",
       title: "Model Development & Prototyping",
-      disc:
-        "Iterate on model options, architectures, and features; produce proof-of-concept prototypes to validate technical approach and value.",
+      disc: "Iterate on model options, architectures, and features; produce proof-of-concept prototypes to validate technical approach and value.",
     },
     {
       step: "4",
       title: "Evaluation & Validation",
-      disc:
-        "Evaluate models using business and technical metrics, perform robustness and fairness checks, and validate on holdout and real-world data.",
+      disc: "Evaluate models using business and technical metrics, perform robustness and fairness checks, and validate on holdout and real-world data.",
     },
     {
       step: "5",
       title: "Integration & Deployment",
-      disc:
-        "Package models as APIs or services, integrate with existing systems, implement CI/CD and MLOps practices for scalable, reliable deployments.",
+      disc: "Package models as APIs or services, integrate with existing systems, implement CI/CD and MLOps practices for scalable, reliable deployments.",
     },
     {
       step: "6",
       title: "Monitoring & Continuous Improvement",
-      disc:
-        "Monitor performance, data drift, and costs in production; iterate with retraining, updates, and ongoing support to sustain value.",
+      disc: "Monitor performance, data drift, and costs in production; iterate with retraining, updates, and ongoing support to sustain value.",
     },
   ],
 };
@@ -87,8 +87,12 @@ const workSteps = {
 export default function Home() {
   return (
     <div className="flex flex-col  justify-center  font-sans dark:bg-black ">
-      <Hero />
-      <WorkSteps title={workSteps.title} subtitle={workSteps.subtitle} steps={workSteps.steps} />
+      <ServiceHero title={heroProps.title} subtitle={heroProps.subtitle} />
+      <WorkSteps
+        title={workSteps.title}
+        subtitle={workSteps.subtitle}
+        steps={workSteps.steps}
+      />
       <FAQ faqs={faqs.faqs} subtitle={faqs.subtitle} />
       <CTASection />
     </div>
