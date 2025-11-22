@@ -1,4 +1,6 @@
 "use client";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -15,53 +17,25 @@ export function Hero() {
 
           <div className="animate-fade-in-subheading">
             {/* Desktop version - single line */}
-            <div className=" sm:flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
-              <span className="text-xl md:text-2xl max-w-5xl text-slate-300">
-                We offer a multitude of services from custom software
-                development to ongoing support to help drive your business’
-                digital transformation.<br></br> We source experts with substantial
-                experience and expertise across <br></br>industries to help streamline
-                your operations, optimise expenses, and boost efficiency all
-                while helping you innovate your core functions.
-              </span>
+            <div className="sm:flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+              <p className="text-xl md:text-2xl max-w-5xl text-slate-300">
+                We build tailored software solutions and provide ongoing
+                technical support to simplify operations, reduce costs, and
+                accelerate your digital transformation with experienced teams
+                across industries.
+              </p>
             </div>
           </div>
-
-          {/* Video placeholder */}
-          {/* <div className="max-w-xs sm:max-w-3xl mx-auto px-6 sm:px-0 mb-8 animate-fade-in-buttons">
-            <div className="relative w-full aspect-video bg-white/5 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl group cursor-pointer hover:bg-white/10 hover:border-white/30 transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5"></div>
-
-              <div className="absolute inset-0 flex items-center justify-center z-10">
-                <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-white transition-all duration-300 shadow-xl">
-                  <svg
-                    className="w-6 h-6 sm:w-8 sm:h-8 text-black ml-1"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </div>
-
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="text-center space-y-2 mt-24 sm:mt-32">
-                  <p className="text-white/70 text-xs sm:text-base font-medium">
-                    Demo Video Coming Soon
-                  </p>
-                </div>
-              </div>
-
-              <div
-                className="absolute inset-0 opacity-5"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
-                  backgroundSize: "40px 40px",
-                }}
-              ></div>
-            </div>
-          </div> */}
+          <Link
+            href={"#"}
+            className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out w-fit mt-12 bg-white hover:bg-gray-300 text-background font-medium px-10 py-3 rounded-full flex items-center  hover:scale-105 hover:shadow-lg cursor-pointer group"
+          >
+            <span className="mr-2">Learn More</span>
+            <ArrowRight
+              size={16}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </Link>
         </div>{" "}
       </div>
     </section>
