@@ -3,32 +3,19 @@
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import React from "react";
 
-const projects = [
-  {
-    id: "p1",
-    title: "Product Discovery Platform",
-    description:
-      "Research-driven platform that helped a fintech startup validate market fit and accelerate MVP delivery.",
-    image: "/pr1.jpeg",
-    href: "#",
-  },
-  {
-    id: "p2",
-    title: "Scalable Commerce API",
-    description:
-      "Headless commerce API built for high throughput, reducing latency and improving checkout conversion.",
-    image: "/pr2.png",
-    href: "#",
-  },
-  {
-    id: "p3",
-    title: "Enterprise Data Pipeline",
-    description:
-      "Robust ETL pipeline that unified analytics and slashed reporting time from hours to minutes.",
-    image: "/pr3.jpeg",
-    href: "#",
-  },
+const images = [
+  "/pr1.jpeg",
+
+  "/1.jpeg",
+  "/1.jpeg",
+
+  "/1.jpeg",
+
+  "/1.jpeg",
+
+  "/1.jpeg",
 ];
 
 export default function LifeAtHere() {
@@ -58,6 +45,27 @@ export default function LifeAtHere() {
     return () => observer.disconnect();
   }, []);
 
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const intervalRef = React.useRef<number | null>(null);
+  const pausedRef = React.useRef(false);
+
+  const restartAuto = () => {
+    if (intervalRef.current) window.clearInterval(intervalRef.current);
+    if (images.length <= 1) return;
+    intervalRef.current = window.setInterval(() => {
+      if (!pausedRef.current) {
+        setCurrentIndex((s) => (s + 1) % images.length);
+      }
+    }, 4000);
+  };
+
+  React.useEffect(() => {
+    restartAuto();
+    return () => {
+      if (intervalRef.current) window.clearInterval(intervalRef.current);
+    };
+  }, [images.length]);
+
   return (
     <section
       id="lifeAtHere"
@@ -71,19 +79,66 @@ export default function LifeAtHere() {
           </h2>
           <div>
             <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out font-medium text-lg text-white/90 mb-4">
-                A product-engineering culture focused on craftsmanship and measurable impact
+              A product-engineering culture focused on craftsmanship and
+              measurable impact
             </p>
             <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
-                For over a decade we've partnered with startups and enterprises to design, build, and scale mission‑critical products. We combine user-centered design, pragmatic engineering, and data-driven decision making to speed delivery, reduce risk, and drive real business outcomes.
+              For over a decade we've partnered with startups and enterprises to
+              design, build, and scale mission‑critical products. We combine
+              user-centered design, pragmatic engineering, and data-driven
+              decision making to speed delivery, reduce risk, and drive real
+              business outcomes.
             </p>
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto ">
-          
-        </div>
+        <div className="max-w-5xl w-full mx-auto ">
+          <div
+            className="relative mx-auto"
+            onMouseEnter={() => (pausedRef.current = true)}
+            onMouseLeave={() => (pausedRef.current = false)}
+          >
+            <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden rounded-xl">
+              {images.map((img, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt={`slide-${i}`}
+                  loading="lazy"
+                  className={`absolute top-0 left-0 w-full h-full object-cover transition-all duration-700 ease-in-out 
+        ${
+          i === currentIndex
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 translate-y-6 scale-95"
+        }`}
+                  style={{ willChange: "opacity, transform" }}
+                />
+              ))}
+            </div>
 
-      
+            {/* Indicators */}
+            {images.length > 1 && (
+              <div className="mt-4 flex items-center justify-center space-x-2">
+                {images.map((_, i) => (
+                  <button
+                    key={i}
+                    aria-label={`Go to slide ${i + 1}`}
+                    onClick={() => {
+                      setCurrentIndex(i);
+                      // reset timer so user click delays the next auto advance
+                      restartAuto();
+                    }}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      i === currentIndex
+                        ? "bg-white"
+                        : "bg-white/30 hover:bg-white/60"
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );
