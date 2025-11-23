@@ -9,6 +9,8 @@ const vaccancies = [
     role: "Software Engineer Intern",
     location: "remote",
     skills: ["React", "Java", "Tailwind"],
+          color: "from-yellow-400 to-orange-500",
+
     disc: "Work with mentors on real product features: implement UI components, write tests, and contribute to backend services. Great for learning full‑stack engineering practices.",
     href: "#",
     icon: (
@@ -218,18 +220,19 @@ export default function OurOpenings() {
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl  mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8 ">
           {vaccancies.map((vaccancie, index) => (
             <article
               key={index}
               className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/3 rounded-xl p-6 border border-white/5"
             >
               <div className="flex items-center gap-4">
-                <div className="flex-shrink-0">
-                  <div className="h-16 w-16 rounded-full bg-linear-to-br from-blue-500 to-teal-400 flex items-center justify-center text-white font-medium text-lg">
-                    JS
+                 <div className="flex-none w-16 h-16 rounded-full overflow-hidden relative ">
+                    <div className={`w-full h-full rounded-full bg-linear-to-br ${vaccancie.color} flex items-center justify-center shadow-md`}>
+                      {vaccancie.icon}
+                    </div>
                   </div>
-                </div>
                 <div>
                   <h3 className="text-xl font-semibold text-white">
                     {vaccancie.role}
@@ -250,6 +253,7 @@ export default function OurOpenings() {
               </ul>
             </article>
           ))}
+          </div>
         </div>
       </div>
     </section>
