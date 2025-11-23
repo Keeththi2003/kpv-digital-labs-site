@@ -10,7 +10,7 @@ const episodes = [
         title: "Episode 1 — Building Scalable APIs",
         description:
             "Hands-on walkthrough of designing APIs for high concurrency: routing, rate limiting, caching, and autoscaling with real benchmark results.",
-        image: "/ep1.jpeg",
+        image: "/episodes/ep1.jpeg",
         href: "https://youtu.be/placeholder-e1",
     },
     {
@@ -18,7 +18,7 @@ const episodes = [
         title: "Episode 2 — Product Discovery to MVP",
         description:
             "A practical playbook for discovery: user interviews, prototyping, and shipping an MVP in weeks with measurable validation techniques.",
-        image: "/ep2.jpeg",
+        image: "/episodesep2.jpeg",
         href: "https://youtu.be/placeholder-e2",
     },
     {
@@ -26,7 +26,7 @@ const episodes = [
         title: "Episode 3 — Observability & SLOs",
         description:
             "Implementing logs, metrics, and tracing; defining SLOs and alerting to catch issues before customers do.",
-        image: "/ep3.jpeg",
+        image: "/episodes/ep3.jpeg",
         href: "https://youtu.be/placeholder-e3",
     },
     {
@@ -34,7 +34,7 @@ const episodes = [
         title: "Episode 4 — Event-Driven Architectures",
         description:
             "Design patterns for reliable event pipelines: idempotency, delivery guarantees, consumer scaling, and troubleshooting tips.",
-        image: "/ep4.jpeg",
+        image: "/episodes/ep4.jpeg",
         href: "https://youtu.be/placeholder-e4",
     },
     {
@@ -42,7 +42,7 @@ const episodes = [
         title: "Episode 5 — CI/CD & Safe Releases",
         description:
             "Automate builds, tests, and deployments with progressive rollout strategies, feature flags, and fast rollback patterns.",
-        image: "/ep5.jpeg",
+        image: "/episodes/ep5.jpeg",
         href: "https://youtu.be/placeholder-e5",
     },
     {
