@@ -1,19 +1,24 @@
-"use client"
-import type React from "react"
-import type { ComponentProps, ReactNode } from "react"
-import { motion, useReducedMotion } from "framer-motion"
-import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from "lucide-react"
-import Image from "next/image"
+"use client";
+import type React from "react";
+import type { ComponentProps, ReactNode } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  YoutubeIcon,
+} from "lucide-react";
+import Image from "next/image";
 
 interface FooterLink {
-  title: string
-  href: string
-  icon?: React.ComponentType<{ className?: string }>
+  title: string;
+  href: string;
+  icon?: React.ComponentType<{ className?: string }>;
 }
 
 interface FooterSection {
-  label: string
-  links: FooterLink[]
+  label: string;
+  links: FooterLink[];
 }
 
 const footerLinks: FooterSection[] = [
@@ -24,6 +29,7 @@ const footerLinks: FooterSection[] = [
       { title: "How We Work", href: "/work" },
       { title: "Services", href: "/services" },
       { title: "Resources", href: "/resources" },
+      { title: "Careers", href: "/careers" },
     ],
   },
   {
@@ -31,11 +37,12 @@ const footerLinks: FooterSection[] = [
     links: [
       { title: "About Us", href: "/about" },
       { title: "Contact", href: "/contact" },
-      { title: "Privacy Policy", href: "/privacy" },
-      { title: "Terms of Service", href: "/terms" },
+      { title: "Blogs", href: "/resources/blogs" },
+      { title: "Privacy Policy", href: "/#" },
+      { title: "Terms of Service", href: "/#" },
     ],
   },
-  
+
   {
     label: "Social Links",
     links: [
@@ -45,7 +52,7 @@ const footerLinks: FooterSection[] = [
       { title: "LinkedIn", href: "#", icon: LinkedinIcon },
     ],
   },
-]
+];
 
 export function Footer() {
   return (
@@ -54,17 +61,26 @@ export function Footer() {
 
       <div className="grid w-full gap-8 xl:grid-cols-3 xl:gap-8">
         <AnimatedContainer className="space-y-4">
-          <Image src="/KPV.svg" alt="KPV Logo" width={64} height={64} className="size-16" />
+          <Image
+            src="/KPV.svg"
+            alt="KPV Logo"
+            width={64}
+            height={64}
+            className="size-16"
+          />
           <div className="text-muted-foreground mt-8 text-sm md:mt-0 md:block hidden">
-            <p>© {new Date().getFullYear()} KPV Digital Labs. All rights reserved.</p>
+            <p>
+              © {new Date().getFullYear()} KPV Digital Labs. All rights
+              reserved.
+            </p>
           </div>
         </AnimatedContainer>
 
-        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-3 xl:col-span-2 xl:mt-0">
+        <div className="mt-4 md:mt-10 grid grid-cols-2 gap-8 md:grid-cols-3 xl:col-span-2 xl:mt-0">
           {footerLinks.map((section, index) => (
             <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
               <div className="mb-10 md:mb-0">
-                <h3 className="text-xs">{section.label}</h3>
+                <h3 className="text-sm">{section.label}</h3>
                 <ul className="text-muted-foreground mt-4 space-y-2 text-sm">
                   {section.links.map((link) => (
                     <li key={link.title}>
@@ -85,28 +101,38 @@ export function Footer() {
       </div>
 
       <div className="md:hidden mt-8 text-center space-y-2">
-        <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} KPV Digital Labs. All rights reserved.</p>
-        <p className="text-muted-foreground text-xs">Web Development by Keeththi</p>
+        <p className="text-muted-foreground text-sm">
+          © {new Date().getFullYear()} KPV Digital Labs. All rights reserved.
+        </p>
+        <p className="text-muted-foreground text-xs">
+          Web Development by KPV Digiatl Labs
+        </p>
       </div>
 
       <div className="hidden md:block mt-8 pt-6 border-t border-foreground/10 w-full">
-        <p className="text-muted-foreground text-xs text-center">Web Development by Keeththi</p>
+        <p className="text-muted-foreground text-xs text-center">
+          Web Development by KPV Digiatl Labs
+        </p>
       </div>
     </footer>
-  )
+  );
 }
 
 type ViewAnimationProps = {
-  delay?: number
-  className?: ComponentProps<typeof motion.div>["className"]
-  children: ReactNode
-}
+  delay?: number;
+  className?: ComponentProps<typeof motion.div>["className"];
+  children: ReactNode;
+};
 
-function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationProps) {
-  const shouldReduceMotion = useReducedMotion()
+function AnimatedContainer({
+  className,
+  delay = 0.1,
+  children,
+}: ViewAnimationProps) {
+  const shouldReduceMotion = useReducedMotion();
 
   if (shouldReduceMotion) {
-    return children
+    return children;
   }
 
   return (
@@ -119,5 +145,5 @@ function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationPr
     >
       {children}
     </motion.div>
-  )
+  );
 }
