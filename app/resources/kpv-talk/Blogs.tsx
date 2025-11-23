@@ -18,7 +18,7 @@ const episodes = [
         title: "Episode 2 — Product Discovery to MVP",
         description:
             "A practical playbook for discovery: user interviews, prototyping, and shipping an MVP in weeks with measurable validation techniques.",
-        image: "/episodesep2.jpeg",
+        image: "/episodes/ep2.jpeg",
         href: "https://youtu.be/placeholder-e2",
     },
     {
