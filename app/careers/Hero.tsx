@@ -30,7 +30,7 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 mb-4 sm:mb-12 animate-fade-in-buttons">
           
           <Link
-            href={"#openings"}
+            href="#ourOpenings"
             className="animate-fade-in-buttons w-fit mt-4 bg-white hover:bg-gray-300 text-background font-medium px-10 py-3 rounded-full flex items-center  hover:scale-105 hover:shadow-lg cursor-pointer group"
           >
             <span className="mr-2">Check Openings</span>
