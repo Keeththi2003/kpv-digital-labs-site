@@ -40,6 +40,8 @@ const navigation = [
     submenu: [
       { name: "Blogs", href: "/resources/blogs" },
       { name: "Case Studies", href: "/resources/case-studies" },
+            { name: "KPV Talk", href: "/resources/kpv-talk" },
+
     ],
   },
 ];
