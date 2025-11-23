@@ -65,7 +65,7 @@ export default function LifeAtHere() {
     <section
       id="lifeAtHere"
       ref={sectionRef}
-      className=" pt-4 pb-16 px-4 sm:px-6 lg:px-8"
+      className="  pb-16 px-4 sm:px-6 lg:px-8"
     >
       <div className="relative max-w-7xl mx-auto flex  flex-col items-center">
         <div className="text-center mb-12 md:mb-16">
