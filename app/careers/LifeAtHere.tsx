@@ -6,16 +6,11 @@ import Link from "next/link";
 import React from "react";
 
 const images = [
-  "/pr1.jpeg",
-
-  "/1.jpeg",
-  "/1.jpeg",
-
-  "/1.jpeg",
-
-  "/1.jpeg",
-
-  "/1.jpeg",
+  "/lifeat/1.jpg",
+  "/lifeat/2.jpg",
+  "/lifeat/3.jpg",
+  "/lifeat/4.jpg",
+  "/lifeat/5.jpg"
 ];
 
 export default function LifeAtHere() {
@@ -70,11 +65,11 @@ export default function LifeAtHere() {
     <section
       id="lifeAtHere"
       ref={sectionRef}
-      className=" pt-16 pb-16 px-4 sm:px-6 lg:px-8"
+      className=" pt-4 pb-16 px-4 sm:px-6 lg:px-8"
     >
       <div className="relative max-w-7xl mx-auto flex  flex-col items-center">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-3xl md:text-4xl lg:text-5xl font-light text-white mb-8 tracking-tight text-balance">
+          <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight text-balance">
             <span className="font-medium">Life at KPV Digital Labs</span>
           </h2>
           <div>
@@ -94,11 +89,11 @@ export default function LifeAtHere() {
 
         <div className="max-w-5xl w-full mx-auto ">
           <div
-            className="relative mx-auto"
+            className="relative mx-auto fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out "
             onMouseEnter={() => (pausedRef.current = true)}
             onMouseLeave={() => (pausedRef.current = false)}
           >
-            <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden rounded-xl">
+            <div className="relative w-full h-[300px] sm:h-[500px] md:h-[600px] overflow-hidden rounded-xl">
               {images.map((img, i) => (
                 <img
                   key={i}
@@ -118,7 +113,7 @@ export default function LifeAtHere() {
 
             {/* Indicators */}
             {images.length > 1 && (
-              <div className="mt-4 flex items-center justify-center space-x-2">
+              <div className="mt-4 flex items-center justify-center space-x-2 fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out ">
                 {images.map((_, i) => (
                   <button
                     key={i}
