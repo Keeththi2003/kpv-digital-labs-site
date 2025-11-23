@@ -200,62 +200,74 @@ export default function OurOpenings() {
       ref={sectionRef}
       className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8"
     >
-      <div className="relative max-w-7xl mx-auto">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight text-balance">
-            <span className="font-medium">Our Benifits </span>
-          </h2>
-          <div>
-            <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out font-medium text-lg text-white/90 mb-4">
-              People‑first teams building reliable, scalable software trusted by
-              organizations worldwide.
-            </p>
-            <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
-              We partner across product and design to deliver end‑to‑end
-              solutions — from discovery and prototyping to deployment and
-              production operations. Our cross‑functional teams prioritize
-              reliability, measurable outcomes, and continuous improvement, with
-              mentorship, autonomy, and modern tooling to help you grow.
-            </p>
-          </div>
-        </div>
-
-        <div className="max-w-5xl  mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8 ">
-          {vaccancies.map((vaccancie, index) => (
-            <article
-              key={index}
-              className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/3 rounded-xl p-6 border border-white/5"
-            >
-              <div className="flex items-center gap-4">
-                 <div className="flex-none w-16 h-16 rounded-full overflow-hidden relative ">
-                    <div className={`w-full h-full rounded-full bg-linear-to-br ${vaccancie.color} flex items-center justify-center shadow-md`}>
-                      {vaccancie.icon}
-                    </div>
-                  </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-white">
-                    {vaccancie.role}
-                  </h3>
-                  <p className="text-sm text-white/70">{vaccancie.location}</p>
-                </div>
-              </div>
-              <p className="mt-4 text-white/70 leading-relaxed">
-                {vaccancie.disc}
-              </p>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {vaccancie.skills.map((skill) => (
-                  <li className="text-xs px-2 py-1 bg-white/5 rounded text-white/80">
-                    {skill}
-                  </li>
-                ))}
-               
-              </ul>
-            </article>
-          ))}
-          </div>
+    <div className="relative max-w-7xl mx-auto">
+      <div className="text-center mb-12 md:mb-16">
+        <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight text-balance">
+        <span className="font-medium">Open Positions</span>
+        </h2>
+        <div>
+        <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out font-medium text-lg text-white/90 mb-4">
+          Join people-first teams building reliable, scalable software used by
+          organizations around the world.
+        </p>
+        <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
+          We’re hiring across engineering, product, and design. Work on
+          end-to-end solutions alongside experienced mentors, take ownership
+          of meaningful projects, and grow with a supportive, diverse team.
+          Flexible work arrangements, continuous learning, and modern
+          tooling are part of how we deliver impact.
+        </p>
         </div>
       </div>
+
+      <div className="max-w-5xl  mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8 ">
+        {vaccancies.map((vaccancie, index) => (
+        <article
+          key={index}
+          className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/3 rounded-xl p-6 border border-white/5"
+        >
+          <div className="flex items-center gap-4">
+             <div className="flex-none w-16 h-16 rounded-full overflow-hidden relative ">
+              <div className={`w-full h-full rounded-full bg-linear-to-br ${vaccancie.color} flex items-center justify-center shadow-md`}>
+                {vaccancie.icon}
+              </div>
+            </div>
+            <div>
+            <h3 className="text-xl font-semibold text-white">
+              {vaccancie.role}
+            </h3>
+            <p className="text-sm text-white/70">{vaccancie.location}</p>
+            </div>
+          </div>
+          <p className="mt-4 text-white/70 leading-relaxed">
+            {vaccancie.disc}
+          </p>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {vaccancie.skills.map((skill) => (
+            <li className="text-xs px-2 py-1 bg-white/5 rounded text-white/80">
+              {skill}
+            </li>
+            ))}
+           
+          </ul>
+
+          <div className="mt-4">
+                            <Link
+                              href={vaccancie.href}
+                              className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium text-white border border-white/10 bg-white/3 hover:bg-white/6 transition"
+                            >
+                              Learn more
+                              <ArrowRight className="w-4 h-4 opacity-90" />
+                            </Link>
+                          </div>
+
+
+        </article>
+        ))}
+        </div>
+      </div>
+    </div>
     </section>
   );
 }
