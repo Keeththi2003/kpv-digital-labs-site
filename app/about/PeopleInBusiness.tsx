@@ -41,7 +41,7 @@ export default function PeopleInBusiness() {
 
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight text-balance">
+          <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 tracking-tight text-balance">
             <span className="font-medium">Our People is Our Business</span>
           </h2>
           <div>
@@ -59,7 +59,7 @@ export default function PeopleInBusiness() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               <article className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/3 rounded-xl p-6 border border-white/5">
                 <div className="flex items-center gap-4">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <div className="h-16 w-16 rounded-full bg-linear-to-br from-blue-500 to-teal-400 flex items-center justify-center text-white font-medium text-lg">
                       JS
                     </div>
@@ -83,7 +83,7 @@ export default function PeopleInBusiness() {
 
               <article className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/3 rounded-xl p-6 border border-white/5">
                 <div className="flex items-center gap-4">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <div className="h-16 w-16 rounded-full bg-linear-to-br from-purple-500 to-pink-400 flex items-center justify-center text-white font-medium text-lg">
                       AR
                     </div>
@@ -106,7 +106,7 @@ export default function PeopleInBusiness() {
 
               <article className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/3 rounded-xl p-6 border border-white/5">
                 <div className="flex items-center gap-4">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <div className="h-16 w-16 rounded-full bg-linear-to-br from-yellow-500 to-orange-400 flex items-center justify-center text-white font-medium text-lg">
                       MK
                     </div>
@@ -128,7 +128,7 @@ export default function PeopleInBusiness() {
 
               <article className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/3 rounded-xl p-6 border border-white/5">
                 <div className="flex items-center gap-4">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <div className="h-16 w-16 rounded-full bg-linear-to-br from-green-500 to-emerald-400 flex items-center justify-center text-white font-medium text-lg">
                       DL
                     </div>
@@ -150,7 +150,7 @@ export default function PeopleInBusiness() {
 
               <article className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/3 rounded-xl p-6 border border-white/5">
                 <div className="flex items-center gap-4">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <div className="h-16 w-16 rounded-full bg-linear-to-br from-red-500 to-rose-400 flex items-center justify-center text-white font-medium text-lg">
                       SV
                     </div>
@@ -172,7 +172,7 @@ export default function PeopleInBusiness() {
 
               <article className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/3 rounded-xl p-6 border border-white/5">
                 <div className="flex items-center gap-4">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <div className="h-16 w-16 rounded-full bg-linear-to-br from-indigo-500 to-sky-400 flex items-center justify-center text-white font-medium text-lg">
                       CT
                     </div>
