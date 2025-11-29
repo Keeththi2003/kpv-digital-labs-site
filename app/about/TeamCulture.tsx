@@ -101,7 +101,7 @@ export default function TeamCulture() {
   
         <div className="relative max-w-5xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight text-balance">
+            <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 tracking-tight text-balance">
               <span className="font-medium">Our Team Culture</span>
             </h2>
             <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
