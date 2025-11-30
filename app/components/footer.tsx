@@ -9,6 +9,7 @@ import {
   YoutubeIcon,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface FooterLink {
   title: string;
@@ -21,35 +22,45 @@ interface FooterSection {
   links: FooterLink[];
 }
 
+const socialLinks = [
+  { title: "Facebook", href: "#", icon: FacebookIcon },
+  { title: "Instagram", href: "#", icon: InstagramIcon },
+  { title: "Youtube", href: "#", icon: YoutubeIcon },
+  { title: "LinkedIn", href: "#", icon: LinkedinIcon },
+];
+
 const footerLinks: FooterSection[] = [
   {
     label: "Get To Know",
     links: [
       { title: "Home", href: "/" },
-      { title: "How We Work", href: "/work" },
+      { title: "How We Work", href: "/how-we-work" },
       { title: "Services", href: "/services" },
       { title: "Resources", href: "/resources" },
       { title: "Careers", href: "/careers" },
-    ],
-  },
-  {
-    label: "Company",
-    links: [
-      { title: "About Us", href: "/about" },
-      { title: "Contact", href: "/contact" },
-      { title: "Blogs", href: "/resources/blogs" },
       { title: "Privacy Policy", href: "/#" },
       { title: "Terms of Service", href: "/#" },
     ],
   },
-
   {
-    label: "Social Links",
+    label: "Our Services",
     links: [
-      { title: "Facebook", href: "#", icon: FacebookIcon },
-      { title: "Instagram", href: "#", icon: InstagramIcon },
-      { title: "Youtube", href: "#", icon: YoutubeIcon },
-      { title: "LinkedIn", href: "#", icon: LinkedinIcon },
+      {
+        title: "Artificial Intelligence",
+        href: "/services/artificial-intelligence",
+      },
+      { title: "DevOps as a Service", href: "/services/devops" },
+      {
+        title: "Enterprise Software Development",
+        href: "/services/enterprise-software-development",
+      },
+      {
+        title: "Managed Service Augmentation",
+        href: "/services/managed-service-agumentation",
+      },
+      { title: "MVP Factory", href: "/services/mvp-factory" },
+      { title: "QA as a Service", href: "/services/qa" },
+      { title: "Search Engine Optimisation", href: "/services/seo" },
     ],
   },
 ];
@@ -59,7 +70,7 @@ export function Footer() {
     <footer className="md:rounded-t-6xl relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center rounded-t-4xl border-t bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 py-12 lg:py-16">
       <div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
-      <div className="grid w-full gap-8 xl:grid-cols-3 xl:gap-8">
+      <div className="grid w-full xl:grid-cols-3 ">
         <AnimatedContainer className="space-y-4">
           <Image
             src="/KPV.svg"
@@ -74,9 +85,20 @@ export function Footer() {
               reserved.
             </p>
           </div>
+          <div className="flex items-center gap-4">
+            {socialLinks.map((link, index) => (
+              <AnimatedContainer key={index} delay={0.1 + index * 0.1}>
+                <div className="mb-10 md:mb-0">
+                  <Link href={link.href}>
+                    <link.icon className="me-1 size-6" />
+                  </Link>
+                </div>
+              </AnimatedContainer>
+            ))}
+          </div>
         </AnimatedContainer>
 
-        <div className="mt-4 md:mt-10 grid grid-cols-2 gap-8 md:grid-cols-3 xl:col-span-2 xl:mt-0">
+        <div className="mt-4 md:mt-10 grid grid-cols-2 gap-8 md:grid-cols-2 xl:col-span-2 xl:mt-0">
           {footerLinks.map((section, index) => (
             <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
               <div className="mb-10 md:mb-0">
