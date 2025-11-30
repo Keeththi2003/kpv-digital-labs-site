@@ -115,7 +115,7 @@ export default function Insights() {
                     {p.description}
                   </p>
                   <a
-                    href={p.href}
+                    href={`/projects/${p.id}`}
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium text-white border border-white/10 bg-white/3 hover:bg-white/6 transition"
                     aria-label={`Learn more about ${p.title}`}
                   >
