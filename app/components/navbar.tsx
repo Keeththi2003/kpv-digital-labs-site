@@ -8,7 +8,16 @@ import Link from "next/link";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
-  { name: "How We Work", href: "/how-we-work" },
+  { name: "How We Work", href: "/how-we-work",
+    submenu: [
+      {
+        name: "Project based",
+        href: "/how-we-work",
+      },
+      { name: "Staff Agumentation", href: "/how-we-work/staff-agumentation" },
+     
+    ],
+   },
 
   {
     name: "Services",
