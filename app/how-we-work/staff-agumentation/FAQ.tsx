@@ -3,37 +3,51 @@
 import { useEffect, useRef } from "react";
 
 const FAQs = [
-  {
-    question: "How do you typically start with a new client?",
-    answer:
-      "We begin with a short discovery engagement to align on outcomes, constraints, and success criteria. That lets us propose a pragmatic roadmap — from a focused prototype to a hardened production rollout — so you get value quickly while reducing long‑term risk.",
-  },
-  {
-    question:
-      "How do you integrate with our existing product and engineering teams?",
-    answer:
-      "Our practitioners embed alongside your team, pairing on code and processes. We prioritize knowledge transfer, standards alignment, and a shared definition of done so your engineers can continue delivering independently after the engagement.",
-  },
-  {
-    question: "What kind of outcomes can we expect and how fast?",
-    answer:
-      "Outcomes vary by scope, but typical first‑mile deliverables — validated prototypes, CI/CD pipelines, or resilience improvements — are achievable in weeks. Our focus is on measurable progress that reduces uncertainty and accelerates time to value.",
-  },
-  {
-    question: "How do you handle security and compliance requirements?",
-    answer:
-      "Security and compliance are part of our delivery checklist. We adopt your controls, run threat modelling where needed, and codify policies into pipelines and observability so compliance becomes repeatable, not an afterthought.",
-  },
-  {
-    question: "What is your pricing model?",
-    answer:
-      "We offer engagement-based and time-and-materials models depending on your preference. Pricing is tied to scope and outcomes — we recommend an initial discovery to scope a fixed outcome where possible.",
-  },
-  {
-    question: "What support do you provide after delivery?",
-    answer:
-      "We provide transition plans, runbooks, and optional handover support. For production engagements we can also offer follow‑on operational support and SLO‑driven maintenance arrangements.",
-  },
+    {
+        question: "What is staff augmentation and how does it differ from hiring contractors or vendors?",
+        answer:
+            "Staff augmentation provides experienced practitioners who embed with your team to extend capacity and skills while you retain day-to-day control. Unlike turnkey vendor deliveries, augmented staff work alongside your engineers and follow your processes, and unlike typical contractors the focus is on rapid, knowledge‑transferable impact.",
+    },
+    {
+        question: "How quickly can you onboard augmented engineers?",
+        answer:
+            "We typically place engineers within 1–4 weeks depending on role complexity and security checks. We prioritize a short ramp by pairing new teammates with existing engineers, sharing onboarding docs, and aligning on tooling and standards up front.",
+    },
+    {
+        question: "How do you ensure cultural and technical fit with our team?",
+        answer:
+            "We screen for both technical skills and collaboration style, run technical interviews with your stakeholders if desired, and start with short trial periods or discovery sprints to validate fit before committing to longer engagements.",
+    },
+    {
+        question: "What engagement models and contract terms do you offer?",
+        answer:
+            "We offer time-and-materials, fixed-scope discovery, and outcome-based engagements. Contracts can be monthly or multi-month, with flexible ramp-up/ramp-down clauses and options for transition to direct hire where appropriate.",
+    },
+    {
+        question: "How do you handle IP, confidentiality, and compliance?",
+        answer:
+            "Standard agreements include IP assignment and NDAs. For regulated environments we adopt your compliance processes, perform background checks as required, and integrate controls into our delivery artifacts and pipelines.",
+    },
+    {
+        question: "Do the augmented staff use our tools and processes?",
+        answer:
+            "Yes. Augmented staff work in your repos, issue trackers, CI/CD, and communication channels. We prioritize aligning to your definition of done, coding standards, and deployment workflows so work is production‑ready and maintainable.",
+    },
+    {
+        question: "How do you measure success and knowledge transfer?",
+        answer:
+            "Success metrics are defined up front (e.g., features delivered, MTTR improvement, test coverage, deployment frequency). We emphasize paired work, documentation, runbooks, and upskilling sessions so your team retains the capabilities after engagement ends.",
+    },
+    {
+        question: "Can you support hybrid or remote collaboration across time zones?",
+        answer:
+            "Yes. We staff for the collaboration pattern you need — overlapping hours for real‑time pairing, or handoff-driven work for asynchronous models. We also establish meeting rhythms, clear sprint goals, and communication SLAs.",
+    },
+    {
+        question: "What happens if the augmented resource isn't meeting expectations?",
+        answer:
+            "We start with trial periods and regular check-ins. If expectations are not met we will replace the resource quickly, run a focused remediation plan, or adjust scope until agreed outcomes are being delivered.",
+    },
 ];
 
 export default function FAQ() {
