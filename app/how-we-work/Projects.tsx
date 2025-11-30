@@ -11,7 +11,7 @@ const projects = [
     description:
       "Research-driven platform that helped a fintech startup validate market fit and accelerate MVP delivery.",
     image: "/pr1.jpeg",
-    href: "#",
+    href: "/projects/p1",
   },
   {
     id: "p2",
@@ -19,7 +19,7 @@ const projects = [
     description:
       "Headless commerce API built for high throughput, reducing latency and improving checkout conversion.",
     image: "/pr2.png",
-    href: "#",
+    href: "/projects/p2",
   },
   {
     id: "p3",
@@ -27,7 +27,7 @@ const projects = [
     description:
       "Robust ETL pipeline that unified analytics and slashed reporting time from hours to minutes.",
     image: "/pr3.jpeg",
-    href: "#",
+    href: "/projects/p2",
   },
 ];
 
