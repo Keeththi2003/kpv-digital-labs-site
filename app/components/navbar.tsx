@@ -8,7 +8,16 @@ import Link from "next/link";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
-  { name: "How We Work", href: "/how-we-work" },
+  { name: "How We Work", href: "/how-we-work",
+    submenu: [
+      {
+        name: "Project based",
+        href: "/how-we-work",
+      },
+      { name: "Staff Agumentation", href: "/how-we-work/staff-agumentation" },
+     
+    ],
+   },
 
   {
     name: "Services",
@@ -175,7 +184,7 @@ export function Navbar() {
                       </Link>
                     ) : (
                       <button
-                        onClick={() => scrollToSection(item.href)}
+                       
                         className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer flex items-center gap-2"
                       >
                         {item.name}
@@ -209,7 +218,7 @@ export function Navbar() {
                 <Link href={"/contact"}>
                   <button
                     className="relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group"
-                    onClick={() => scrollToSection("#contact")}
+                    
                   >
                     <span className="mr-2">Let's Talk</span>
                     <ArrowRight
