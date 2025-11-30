@@ -3,46 +3,31 @@
 import { useEffect, useRef } from "react";
 
 const steps = [
-  {
-    step: "1",
-    title: "Initial Consultation",
-    disc: "We start by scheduling an initial meeting to discuss your project goals, requirements, and challenges",
-  },
-  {
-    step: "2",
-    title: "Follow Up Meeting",
-    disc: "After our initial consultation, we schedule a follow-up meeting to dive deeper into your project needs and objectives.",
-  },
-  {
-    step: "3",
-    title: "Proposal & Scope",
-    disc: "We prepare a detailed proposal outlining scope, timeline, deliverables, and cost so you have a clear plan to approve.",
-  },
-  {
-    step: "4",
-    title: "Design & Planning",
-    disc: "Our team collaborates on UX/UI design, architecture, and a delivery plan to ensure alignment before development begins.",
-  },
-  {
-    step: "5",
-    title: "Development",
-    disc: "Engineers build the solution iteratively, with regular demos and checkpoints to keep you informed and involved.",
-  },
-  {
-    step: "6",
-    title: "Testing & QA",
-    disc: "We perform thorough testing, QA, and validation to ensure reliability, performance, and security prior to release.",
-  },
-  {
-    step: "7",
-    title: "Deployment & Handover",
-    disc: "We deploy to production, provide documentation, and transfer knowledge so your team can operate and maintain the system.",
-  },
-  {
-    step: "8",
-    title: "Post-launch Support",
-    disc: "Post-launch we offer support, monitoring, and optimization to address issues and iterate on improvements.",
-  },
+    {
+        step: "1",
+        title: "Discovery Call",
+        disc: "We'll work with you to understand your specific requirements and identify the skills and experience needed.",
+    },
+    {
+        step: "2",
+        title: "Talent Sourcing",
+        disc: "Our extensive network of IT professionals allows us to quickly source candidates that match your criteria.",
+    },
+    {
+        step: "3",
+        title: "Screening and Interviewing",
+        disc: "We conduct a 6-step interview and assessment process to ensure candidates have the necessary skills and qualifications.",
+    },
+    {
+        step: "4",
+        title: "Onboarding and Integration",
+        disc: "Once selected, we assist with the onboarding process and integrate the new team member into your existing team.",
+    },
+    {
+        step: "5",
+        title: "Ongoing HR Support",
+        disc: "We provide ongoing HR support to ensure a smooth working relationship and address any issues that may arise.",
+    },
 ];
 
 export default function WorkSteps() {
