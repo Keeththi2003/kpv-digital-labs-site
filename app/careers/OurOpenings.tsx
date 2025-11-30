@@ -224,7 +224,74 @@ export default function OurOpenings() {
         </p>
         </div>
       </div>
+      <div className="mb-8 max-w-3xl mx-auto">
+        <div className="flex flex-col sm:flex-row gap-3 items-center">
+          <label htmlFor="job-search" className="sr-only">
+            Search openings
+          </label>
+          <input
+            id="job-search"
+            type="search"
+            placeholder="Search by role, location or skill..."
+            className="w-full sm:flex-1 px-4 py-3 rounded-md bg-white/3 border border-white/10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/10"
+            onInput={(e) => {
+              const q = (e.currentTarget as HTMLInputElement).value.trim().toLowerCase();
+              const locSelect = sectionRef.current?.querySelector<HTMLInputElement>("#loc-filter");
+              const loc = locSelect?.value.toLowerCase() || "";
+              const container = sectionRef.current;
+              if (!container) return;
+              const articles = Array.from(container.querySelectorAll("article"));
+              articles.forEach((article) => {
+                const role = article.querySelector("h3")?.textContent?.toLowerCase() || "";
+                // the first small paragraph under the title is the location in the current markup
+                const location = article.querySelector("h3")?.nextElementSibling?.textContent?.toLowerCase() || article.querySelector("p")?.textContent?.toLowerCase() || "";
+                const skills = Array.from(article.querySelectorAll("ul li"))
+                  .map((li) => li.textContent?.toLowerCase() || "")
+                  .join(" ");
+                const hay = `${role} ${location} ${skills}`;
+                const matchesQuery = q === "" || hay.includes(q);
+                const matchesLoc = loc === "" || location.includes(loc);
+                const show = matchesQuery && matchesLoc;
+                article.classList.toggle("hidden", !show);
+              });
+            }}
+          />
 
+          <select
+            id="loc-filter"
+            className="w-full sm:w-56 px-3 py-3 rounded-md bg-white/3 border border-white/10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/10"
+            onChange={(e) => {
+              const loc = (e.currentTarget as HTMLSelectElement).value.toLowerCase();
+              const searchInput = sectionRef.current?.querySelector<HTMLInputElement>("#job-search")?.value.trim().toLowerCase() || "";
+              const container = sectionRef.current;
+              if (!container) return;
+              const articles = Array.from(container.querySelectorAll("article"));
+              articles.forEach((article) => {
+                const role = article.querySelector("h3")?.textContent?.toLowerCase() || "";
+                const location = article.querySelector("h3")?.nextElementSibling?.textContent?.toLowerCase() || article.querySelector("p")?.textContent?.toLowerCase() || "";
+                const skills = Array.from(article.querySelectorAll("ul li"))
+                  .map((li) => li.textContent?.toLowerCase() || "")
+                  .join(" ");
+                const hay = `${role} ${location} ${skills}`;
+                const matchesQuery = searchInput === "" || hay.includes(searchInput);
+                const matchesLoc = loc === "" || location.includes(loc);
+                const show = matchesQuery && matchesLoc;
+                article.classList.toggle("hidden", !show);
+              });
+            }}
+          >
+            <option value="" className="bg-background">All locations</option>
+            {Array.from(new Set(vaccancies.map((v) => v.location))).map((loc) => (
+              <option key={loc} value={loc} className="bg-background rounded-md hover:bg-white/20">
+                {loc}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="mt-2 text-sm text-white/70">
+          Tip: search by role, skill (e.g., React) or location. Results filter live as you type.
+        </div>
+      </div>
       <div className="max-w-5xl  mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8 ">
         {vaccancies.map((vaccancie, index) => (
