@@ -10,21 +10,21 @@ export function Hero() {
         </div>
         <div className="space-y-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight text-balance animate-fade-in-heading">
-            Project Based Development{" "}
+            Staff Agumentation{" "}
           </h1>
 
           <div className="animate-fade-in-subheading">
             {/* Desktop version - single line */}
             <div className=" sm:flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
               <span className="text-xl md:text-2xl max-w-4xl text-slate-300">
-                We partner closely with you — from discovery and planning to delivery and
-                ongoing support — to build reliable, scalable software that meets your
-                goals on time and within budget.
+                Our staff augmentation services provide a flexible and
+                cost-effective way to supplement your existing team with skilled
+                IT professionals. Whether you need temporary support for
+                specific projects or long-term assistance, we can help you find
+                the right talent to meet your needs.
               </span>
             </div>
           </div>
-
-          
         </div>{" "}
       </div>
     </section>
