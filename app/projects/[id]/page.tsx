@@ -1,6 +1,12 @@
 import Image from "next/image";
 
-const projects = {
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+}
+
+const projects: Record<string, Project> = {
   p1: {
     title: "Product Discovery Platform",
     description:
@@ -21,12 +27,16 @@ const projects = {
   },
 };
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
+export default function ProjectPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const project = projects[params.id];
 
   if (!project) {
     return (
-      <div className="p-10 text-center text-red-500">
+      <div className="p-10 text-center text-red-500 text-xl">
         Project not found.
       </div>
     );
@@ -38,11 +48,14 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
         src={project.image}
         alt={project.title}
         width={1200}
-        height={700}
-        className="rounded-xl mb-8"
+        height={600}
+        className="rounded-xl mb-10 object-cover"
       />
 
-      <h1 className="text-4xl font-bold text-white mb-4">{project.title}</h1>
+      <h1 className="text-4xl font-semibold text-white mb-4">
+        {project.title}
+      </h1>
+
       <p className="text-lg text-white/80 leading-relaxed">
         {project.description}
       </p>
