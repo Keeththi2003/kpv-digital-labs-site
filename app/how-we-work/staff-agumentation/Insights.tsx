@@ -6,27 +6,35 @@ import Link from "next/link";
 
 const projects = [
   {
-    id: "p1",
-    title: "Product Discovery Platform",
+    id: "p4",
+    title: "A Quick Guide to Cloud Application Development",
     description:
-      "Research-driven platform that helped a fintech startup validate market fit and accelerate MVP delivery.",
+      "Cloud computing has revolutionised the way businesses operate, innovate, and evolve in today’s fast-paced world. This guide covers core concepts, architectures, and best practices for building scalable, resilient cloud applications.",
     image: "/pr1.jpeg",
     href: "#",
   },
   {
-    id: "p2",
-    title: "Scalable Commerce API",
+    id: "p5",
+    title: "Crafting the Best SEO Reports for Clients with Expert Tips and Tricks",
     description:
-      "Headless commerce API built for high throughput, reducing latency and improving checkout conversion.",
+      "Crafting impactful SEO reports can be a challenge given the ever-changing search landscape. This post shares templates, key metrics, and storytelling techniques to clearly demonstrate value to clients.",
     image: "/pr2.png",
     href: "#",
   },
   {
-    id: "p3",
-    title: "Enterprise Data Pipeline",
+    id: "p6",
+    title: "Guide to Efficient Enterprise Software Development: Tackling Challenges",
     description:
-      "Robust ETL pipeline that unified analytics and slashed reporting time from hours to minutes.",
+      "In the rapidly evolving landscape of enterprise software, companies face a myriad of development, integration, and scaling challenges. Learn strategies for modular architectures, CI/CD, and effective team collaboration.",
     image: "/pr3.jpeg",
+    href: "#",
+  },
+  {
+    id: "p7",
+    title: "Headless CMS: Why Should You Move from a Traditional CMS",
+    description:
+      "Your website is a critical element of your organisation’s digital footprint. Companies that adapt to trends and embrace a headless CMS gain flexibility, performance, and omnichannel delivery — here’s why and how to migrate.",
+    image: "/bl9.jpeg",
     href: "#",
   },
 ];
@@ -120,16 +128,7 @@ export default function Insights() {
           </div>
         </div>
 
-        <Link
-          href={"#"}
-          className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out w-fit mt-12 bg-white hover:bg-gray-300 text-background font-medium px-10 py-3 rounded-full flex items-center  hover:scale-105 hover:shadow-lg cursor-pointer group"
-        >
-          <span className="mr-2">Learn More</span>
-          <ArrowRight
-            size={16}
-            className="transition-transform duration-300 group-hover:translate-x-1"
-          />
-        </Link>
+        
       </div>
     </section>
   );
