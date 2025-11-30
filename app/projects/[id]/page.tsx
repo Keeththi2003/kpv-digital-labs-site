@@ -1,5 +1,6 @@
 import { CTASection } from "@/app/components/CTASection";
 import { Hero } from "./Hero";
+import Project from "./Project";
 
 type Project = {
     id: string;
@@ -52,6 +53,7 @@ export default async function Home(props: { params: Promise<{ id: string }> }) {
   return (
     <div className="flex flex-col justify-center font-sans dark:bg-black">
       <Hero title={project.title} description={project.description} />
+      <Project/>
       <CTASection />
     </div>
   );
