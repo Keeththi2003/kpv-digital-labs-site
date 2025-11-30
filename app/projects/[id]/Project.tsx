@@ -149,24 +149,20 @@ export default function Project() {
         </div>
         <div className="text-left mb-8 md:mb-12">
           <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-2xl md:text-3xl lg:text-4xl font-light text-white mb-4 tracking-tight text-balance">
-            <span className="font-medium"></span>
+            <span className="font-medium">Results and Outcomes</span>
           </h2>
           <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-6xl mx-auto leading-relaxed">
-            Our client, a leading provider of software and payroll SaaS,
-            specialises in delivering comprehensive production accounting
-            solutions. With a strong focus on efficiency, reliability, and
-            customer satisfaction, they primarily cater to the film,
-            broadcasting and media industries. They have provided software
-            solutions for famous production houses including the Marvel
-            Franchise, Netflix, Warner Brothers and Eureka.
-            <br />
-            Their commitment to excellence and continuous improvement has earned
-            them a reputation as a trusted logistics partner, capable of
-            handling complex supply chain challenges with precision and
-            expertise. Operating with a customer-centric approach, they
-            prioritise understanding and meeting the unique needs of each
-            client, delivering tailored solutions that optimises their client's
-            financial operations and drive business success.
+           Creating a pivot table-based budgeting system has been a tough learning curve with many achievements. The team reduced the time taken for calculations up to 3 seconds or less even when handling large datasets. They were also able to create an interactive user interface that can perform actions like sorting, editing and get real-time updates without any delay using ReactJS and efficient state management. Some of the favourable points of this system include:  
+<br /> <br />  
+- Enhanced Performance: Integrating Web Workers for parallelised formula calculations significantly improved application performance. Users now benefit from quicker response times, with formula calculations consistently completing within the specified timeframe of less than 3 seconds. 
+<br /> <br />  
+- Responsive User Interface: Employing ReactJS and efficient state management ensured a responsive and interactive user interface. Users can seamlessly interact with the data grid, perform actions like sorting and editing, and observe real-time updates without any noticeable delays.
+<br /> <br />  
+- Excel-Like Formula Handling: Through the use of Handsontable and Hyperformula, we implemented Excel-like formulas and spreadsheet functionalities. This enables users to work with familiar formula expressions, thereby enhancing the usability of the application for tasks involving complex calculations. 
+<br /> <br />  
+- Modular and Reusable Components: Utilising React's component-based architecture allowed for the creation of modular and reusable UI components. This approach streamlined both development and maintenance efforts, resulting in a more modular codebase that's easier to extend and scale. 
+<br /> <br />  
+- Background Data Processing: Service workers were utilised for background processing of aggregation data row values. This separation of background tasks has improved overall system stability, effectively preventing UI freezes during intensive computations and ensuring a smoother user experience.
           </p>
         </div>
       </div>
