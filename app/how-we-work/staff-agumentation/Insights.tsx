@@ -31,7 +31,7 @@ const projects = [
   },
 ];
 
-export default function Projects() {
+export default function Insights() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -67,17 +67,14 @@ export default function Projects() {
       <div className="relative max-w-7xl mx-auto flex  flex-col items-center">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 tracking-tight text-balance">
-            <span className="font-medium">200+ Successful Client Projects</span>
+            <span className="font-medium">Our Latest Insights</span>
           </h2>
           <div>
             <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out font-medium text-lg text-white/90 mb-4">
-              Designed and delivered by product engineers
+              Designed and delivered by our staff
             </p>
             <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
-              For more than a decade we've helped startups and enterprises ship
-              resilient, scalable software that drives measurable business
-              outcomes. We combine pragmatic engineering with product-focused
-              thinking to reduce risk, cut time-to-market, and unlock growth.
+             Stay ahead of the curve with our expert insights and updates on the latest in technology and software development. From emerging technologies to tips on optimising your business operations, our blog section offers valuable information for businesses of all sizes.
             </p>
           </div>
         </div>
