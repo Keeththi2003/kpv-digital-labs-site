@@ -26,16 +26,16 @@ const footerLinks: FooterSection[] = [
     label: "Get To Know",
     links: [
       { title: "Home", href: "/" },
-      { title: "How We Work", href: "/work" },
+      { title: "How We Work", href: "/how-we-work" },
       { title: "Services", href: "/services" },
       { title: "Resources", href: "/resources" },
       { title: "Careers", href: "/careers" },
     ],
   },
   {
-    label: "Company",
+    label: "Our Services",
     links: [
-      { title: "About Us", href: "/about" },
+      { title: "Artificial Intelligence", href: "/about" },
       { title: "Contact", href: "/contact" },
       { title: "Blogs", href: "/resources/blogs" },
       { title: "Privacy Policy", href: "/#" },
@@ -43,15 +43,15 @@ const footerLinks: FooterSection[] = [
     ],
   },
 
-  {
-    label: "Social Links",
-    links: [
-      { title: "Facebook", href: "#", icon: FacebookIcon },
-      { title: "Instagram", href: "#", icon: InstagramIcon },
-      { title: "Youtube", href: "#", icon: YoutubeIcon },
-      { title: "LinkedIn", href: "#", icon: LinkedinIcon },
-    ],
-  },
+  // {
+  //   label: "Social Links",
+  //   links: [
+  //     { title: "Facebook", href: "#", icon: FacebookIcon },
+  //     { title: "Instagram", href: "#", icon: InstagramIcon },
+  //     { title: "Youtube", href: "#", icon: YoutubeIcon },
+  //     { title: "LinkedIn", href: "#", icon: LinkedinIcon },
+  //   ],
+  // },
 ];
 
 export function Footer() {
@@ -59,7 +59,7 @@ export function Footer() {
     <footer className="md:rounded-t-6xl relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center rounded-t-4xl border-t bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 py-12 lg:py-16">
       <div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
-      <div className="grid w-full gap-8 xl:grid-cols-3 xl:gap-8">
+      <div className="grid w-full xl:grid-cols-3 ">
         <AnimatedContainer className="space-y-4">
           <Image
             src="/KPV.svg"
@@ -76,7 +76,7 @@ export function Footer() {
           </div>
         </AnimatedContainer>
 
-        <div className="mt-4 md:mt-10 grid grid-cols-2 gap-8 md:grid-cols-3 xl:col-span-2 xl:mt-0">
+        <div className="mt-4 md:mt-10 grid grid-cols-2 gap-8 md:grid-cols-2 xl:col-span-2 xl:mt-0">
           {footerLinks.map((section, index) => (
             <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
               <div className="mb-10 md:mb-0">
