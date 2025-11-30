@@ -3,10 +3,10 @@
 
 type HeroProps = {
     title:string,
-    discribtion:string,
+    description:string,
 }
 
-export function Hero({title,discribtion}:HeroProps) {
+export function Hero({title,description}:HeroProps) {
   return (
     <section className="flex items-start justify-center px-4 pt-24 md:pt-32 pb-20 relative">
       <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -23,7 +23,7 @@ export function Hero({title,discribtion}:HeroProps) {
             {/* Desktop version - single line */}
             <div className=" sm:flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
               <span className="text-xl md:text-2xl max-w-4xl text-slate-300">
-                {discribtion}
+                {description}
               </span>
             </div>
           </div>
