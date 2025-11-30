@@ -9,6 +9,7 @@ import {
   YoutubeIcon,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface FooterLink {
   title: string;
@@ -21,6 +22,13 @@ interface FooterSection {
   links: FooterLink[];
 }
 
+const socialLinks = [
+  { title: "Facebook", href: "#", icon: FacebookIcon },
+  { title: "Instagram", href: "#", icon: InstagramIcon },
+  { title: "Youtube", href: "#", icon: YoutubeIcon },
+  { title: "LinkedIn", href: "#", icon: LinkedinIcon },
+];
+
 const footerLinks: FooterSection[] = [
   {
     label: "Get To Know",
@@ -30,28 +38,31 @@ const footerLinks: FooterSection[] = [
       { title: "Services", href: "/services" },
       { title: "Resources", href: "/resources" },
       { title: "Careers", href: "/careers" },
+      { title: "Privacy Policy", href: "/#" },
+      { title: "Terms of Service", href: "/#" },
     ],
   },
   {
     label: "Our Services",
     links: [
-      { title: "Artificial Intelligence", href: "/about" },
-      { title: "Contact", href: "/contact" },
-      { title: "Blogs", href: "/resources/blogs" },
-      { title: "Privacy Policy", href: "/#" },
-      { title: "Terms of Service", href: "/#" },
+      {
+        title: "Artificial Intelligence",
+        href: "/services/artificial-intelligence",
+      },
+      { title: "DevOps as a Service", href: "/services/devops" },
+      {
+        title: "Enterprise Software Development",
+        href: "/services/enterprise-software-development",
+      },
+      {
+        title: "Managed Service Augmentation",
+        href: "/services/managed-service-agumentation",
+      },
+      { title: "MVP Factory", href: "/services/mvp-factory" },
+      { title: "QA as a Service", href: "/services/qa" },
+      { title: "Search Engine Optimisation", href: "/services/seo" },
     ],
   },
-
-  // {
-  //   label: "Social Links",
-  //   links: [
-  //     { title: "Facebook", href: "#", icon: FacebookIcon },
-  //     { title: "Instagram", href: "#", icon: InstagramIcon },
-  //     { title: "Youtube", href: "#", icon: YoutubeIcon },
-  //     { title: "LinkedIn", href: "#", icon: LinkedinIcon },
-  //   ],
-  // },
 ];
 
 export function Footer() {
@@ -73,6 +84,17 @@ export function Footer() {
               © {new Date().getFullYear()} KPV Digital Labs. All rights
               reserved.
             </p>
+          </div>
+          <div className="flex items-center gap-4">
+            {socialLinks.map((link, index) => (
+              <AnimatedContainer key={index} delay={0.1 + index * 0.1}>
+                <div className="mb-10 md:mb-0">
+                  <Link href={link.href}>
+                    <link.icon className="me-1 size-6" />
+                  </Link>
+                </div>
+              </AnimatedContainer>
+            ))}
           </div>
         </AnimatedContainer>
 
