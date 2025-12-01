@@ -4,87 +4,88 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
+
 const caseStudies = [
     {
-        id: "b1",
-        title: "Accessible React Components",
+        id: "cs1",
+        title: "Redesigning Checkout Flow",
         description:
-            "A practical guide to building keyboard-friendly, screen-reader compatible React components — ARIA, focus management, and testing best practices.",
-        category: "Frontend",
-        image: "/bl1.png",
-        href: "#",
-    },
-    {
-        id: "b2",
-        title: "Scaling Node.js APIs",
-        description:
-            "Real-world patterns for designing scalable, resilient Node.js APIs: pagination, caching, rate limiting, and observability.",
-        category: "Backend",
-        image: "/bl2.jpeg",
-        href: "#",
-    },
-    {
-        id: "b3",
-        title: "Data-Informed Product Strategy",
-        description:
-            "How to use analytics and experimentation to validate ideas, prioritize roadmaps, and measure customer impact effectively.",
+            "Reworked the e-commerce checkout to simplify steps, improve accessibility, and reduce friction. Result: 18% increase in completed purchases and 24% fewer support tickets related to checkout errors.",
         category: "Product",
-        image: "/bl3.jpeg",
-        href: "#",
+        image: "/case-studies/checkout-redesign.jpg",
+        href: "#checkout-redesign",
     },
     {
-        id: "b4",
-        title: "Design Systems & Governance",
+        id: "cs2",
+        title: "Headless CMS Migration",
         description:
-            "Creating and scaling design systems: tokens, shared components, and governance to ensure UI consistency across teams.",
-        category: "Design",
-        image: "/bl4.png",
-        href: "#",
-    },
-    {
-        id: "b5",
-        title: "Observability for Distributed Systems",
-        description:
-            "Practical observability: combining metrics, traces, and logs to accelerate debugging and reduce mean time to resolution.",
-        category: "DevOps",
-        image: "/bl5.jpeg",
-        href: "#",
-    },
-    {
-        id: "b6",
-        title: "Offline-First Mobile Architecture",
-        description:
-            "Patterns for reliable sync, local-first data storage, and graceful degradation to build robust mobile experiences.",
-        category: "Mobile",
-        image: "/bl6.png",
-        href: "#",
-    },
-    {
-        id: "b7",
-        title: "React Performance Optimization",
-        description:
-            "Techniques to reduce render cost, minimize re-renders, and profile large React apps for measurable performance gains.",
-        category: "Frontend",
-        image: "/bl7.jpeg",
-        href: "#",
-    },
-    {
-        id: "b8",
-        title: "Event-Driven Architectures",
-        description:
-            "Designing event-driven systems: idempotent consumers, message schemas, and strategies for eventual consistency.",
+            "Migrated a legacy CMS to a headless architecture with incremental rollout. Improved page load performance and enabled faster content iteration across platforms.",
         category: "Backend",
-        image: "/bl8.png",
-        href: "#",
+        image: "/case-studies/headless-cms.jpg",
+        href: "#headless-cms-migration",
     },
     {
-        id: "b9",
-        title: "ML for Product Teams",
+        id: "cs3",
+        title: "Design System Adoption",
         description:
-            "How to identify product opportunities for ML, evaluate feasibility, and ship models that deliver clear business value.",
+            "Built a cross-team design system with tokens, component library, and governance. Reduced UI inconsistencies and sped up feature delivery by ~30%.",
+        category: "Design",
+        image: "/case-studies/design-system.jpg",
+        href: "#design-system",
+    },
+    {
+        id: "cs4",
+        title: "Realtime Collaboration Engine",
+        description:
+            "Engineered a low-latency realtime collaboration service using CRDTs and WebSockets. Enabled multi-user editing with conflict-free merges and sub-200ms sync times.",
+        category: "Frontend",
+        image: "/case-studies/realtime-collab.jpg",
+        href: "#realtime-collaboration",
+    },
+    {
+        id: "cs5",
+        title: "Platform Observability Overhaul",
+        description:
+            "Introduced centralized tracing, metrics, and logging. Reduced mean time to resolution by 40% and surfaced critical reliability issues proactively.",
+        category: "DevOps",
+        image: "/case-studies/observability.jpg",
+        href: "#observability-overhaul",
+    },
+    {
+        id: "cs6",
+        title: "Offline-First Mobile Sync",
+        description:
+            "Implemented robust local-first storage and conflict-resolution sync for intermittent connectivity. Resulted in 95% task completion rate while offline.",
+        category: "Mobile",
+        image: "/case-studies/offline-mobile.jpg",
+        href: "#offline-first-mobile",
+    },
+    {
+        id: "cs7",
+        title: "ML-Powered Recommendations",
+        description:
+            "Deployed a lightweight recommendations service using item- and session-based models. Lifted click-through by 12% and average order value by 7%.",
         category: "Data",
-        image: "/bl9.jpeg",
-        href: "#",
+        image: "/case-studies/ml-recommendations.jpg",
+        href: "#ml-recommendations",
+    },
+    {
+        id: "cs8",
+        title: "API Rate Limiting & Resilience",
+        description:
+            "Designed a tiered rate-limiting strategy with graceful degradation and retries. Protected public APIs from traffic spikes and improved overall SLA adherence.",
+        category: "Security",
+        image: "/case-studies/api-resilience.jpg",
+        href: "#api-rate-limiting",
+    },
+    {
+        id: "cs9",
+        title: "Internationalization at Scale",
+        description:
+            "Launched multilingual support and locale-aware formatting across web and mobile. Reduced localization cycle time and improved global conversion rates.",
+        category: "Product",
+        image: "/case-studies/internationalization.jpg",
+        href: "#internationalization",
     },
 ];
 const categories = ["All", ...Array.from(new Set(caseStudies.map((b) => b.category)))];
