@@ -224,14 +224,14 @@ export default function Blogs() {
                                     <p className="text-white/80 text-sm md:text-base mb-4 leading-relaxed">
                                         {p.description}
                                     </p>
-                                    <a
-                                        href={p.href}
+                                    <Link
+                                        href={`/resources/blogs/${p.id}`}
                                         className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium text-white border border-white/10 bg-white/3 hover:bg-white/6 transition"
                                         aria-label={`Learn more about ${p.title}`}
                                     >
                                         Learn more
                                         <ArrowRight className="w-4 h-4 opacity-90" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </article>
                         ))}
