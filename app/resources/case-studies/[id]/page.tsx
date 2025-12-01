@@ -90,7 +90,7 @@ const caseStudies = [
     },
 ];
 
-export default async function Home() {
+export default function Home() {
     const params = useParams();
       const { id } = params;
 
