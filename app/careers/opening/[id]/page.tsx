@@ -404,7 +404,7 @@ export default function Page() {
 
                     <div className="flex flex-col sm:flex-row gap-3 mt-4 items-center">
                         <button
-                            className="px-4 py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-[#7c5cff] to-[#5a44ff] shadow-md disabled:opacity-60"
+                            className="px-4 py-2 rounded-lg font-semibold text-white bg-linear-to-r from-[#7c5cff] to-[#5a44ff] shadow-md disabled:opacity-60"
                             type="submit"
                             disabled={submitting}
                         >
@@ -413,7 +413,7 @@ export default function Page() {
 
                         <button
                             type="button"
-                            className="px-4 py-2 rounded-lg border border-white/5 text-sm hover:translate-y-[-2px] transition"
+                            className="px-4 py-2 rounded-lg border border-white/5 text-sm hover:-translate-y-0.5 transition"
                             onClick={() => {
                                 setName("");
                                 setEmail("");
