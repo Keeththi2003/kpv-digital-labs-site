@@ -6,85 +6,85 @@ import Link from "next/link";
 
 const caseStudies = [
     {
-        id: "b1",
-        title: "Accessible React Components",
+        id: "cs1",
+        title: "Redesigning Checkout Flow",
         description:
-            "A practical guide to building keyboard-friendly, screen-reader compatible React components — ARIA, focus management, and testing best practices.",
-        category: "Frontend",
-        image: "/bl1.png",
-        href: "#",
-    },
-    {
-        id: "b2",
-        title: "Scaling Node.js APIs",
-        description:
-            "Real-world patterns for designing scalable, resilient Node.js APIs: pagination, caching, rate limiting, and observability.",
-        category: "Backend",
-        image: "/bl2.jpeg",
-        href: "#",
-    },
-    {
-        id: "b3",
-        title: "Data-Informed Product Strategy",
-        description:
-            "How to use analytics and experimentation to validate ideas, prioritize roadmaps, and measure customer impact effectively.",
+            "Reworked the e-commerce checkout to simplify steps, improve accessibility, and reduce friction. Result: 18% increase in completed purchases and 24% fewer support tickets related to checkout errors.",
         category: "Product",
-        image: "/bl3.jpeg",
-        href: "#",
+        image: "/case-studies/cs1.png",
+        href: "#checkout-redesign",
     },
     {
-        id: "b4",
-        title: "Design Systems & Governance",
+        id: "cs2",
+        title: "Headless CMS Migration",
         description:
-            "Creating and scaling design systems: tokens, shared components, and governance to ensure UI consistency across teams.",
-        category: "Design",
-        image: "/bl4.png",
-        href: "#",
-    },
-    {
-        id: "b5",
-        title: "Observability for Distributed Systems",
-        description:
-            "Practical observability: combining metrics, traces, and logs to accelerate debugging and reduce mean time to resolution.",
-        category: "DevOps",
-        image: "/bl5.jpeg",
-        href: "#",
-    },
-    {
-        id: "b6",
-        title: "Offline-First Mobile Architecture",
-        description:
-            "Patterns for reliable sync, local-first data storage, and graceful degradation to build robust mobile experiences.",
-        category: "Mobile",
-        image: "/bl6.png",
-        href: "#",
-    },
-    {
-        id: "b7",
-        title: "React Performance Optimization",
-        description:
-            "Techniques to reduce render cost, minimize re-renders, and profile large React apps for measurable performance gains.",
-        category: "Frontend",
-        image: "/bl7.jpeg",
-        href: "#",
-    },
-    {
-        id: "b8",
-        title: "Event-Driven Architectures",
-        description:
-            "Designing event-driven systems: idempotent consumers, message schemas, and strategies for eventual consistency.",
+            "Migrated a legacy CMS to a headless architecture with incremental rollout. Improved page load performance and enabled faster content iteration across platforms.",
         category: "Backend",
-        image: "/bl8.png",
-        href: "#",
+        image: "/case-studies/cs2.jpeg",
+        href: "#headless-cms-migration",
     },
     {
-        id: "b9",
-        title: "ML for Product Teams",
+        id: "cs3",
+        title: "Design System Adoption",
         description:
-            "How to identify product opportunities for ML, evaluate feasibility, and ship models that deliver clear business value.",
+            "Built a cross-team design system with tokens, component library, and governance. Reduced UI inconsistencies and sped up feature delivery by ~30%.",
+        category: "Design",
+        image: "/case-studies/cs3.jpeg",
+        href: "#design-system",
+    },
+    {
+        id: "cs4",
+        title: "Realtime Collaboration Engine",
+        description:
+            "Engineered a low-latency realtime collaboration service using CRDTs and WebSockets. Enabled multi-user editing with conflict-free merges and sub-200ms sync times.",
+        category: "Frontend",
+        image: "/case-studies/cs4.jpeg",
+        href: "#realtime-collaboration",
+    },
+    {
+        id: "cs5",
+        title: "Platform Observability Overhaul",
+        description:
+            "Introduced centralized tracing, metrics, and logging. Reduced mean time to resolution by 40% and surfaced critical reliability issues proactively.",
+        category: "DevOps",
+        image: "/case-studies/cs5.png",
+        href: "#observability-overhaul",
+    },
+    {
+        id: "cs6",
+        title: "Offline-First Mobile Sync",
+        description:
+            "Implemented robust local-first storage and conflict-resolution sync for intermittent connectivity. Resulted in 95% task completion rate while offline.",
+        category: "Mobile",
+        image: "/case-studies/cs6.png",
+        href: "#offline-first-mobile",
+    },
+    {
+        id: "cs7",
+        title: "ML-Powered Recommendations",
+        description:
+            "Deployed a lightweight recommendations service using item- and session-based models. Lifted click-through by 12% and average order value by 7%.",
         category: "Data",
-        image: "/bl9.jpeg",
-        href: "#",
+        image: "/case-studies/cs7.jpeg",
+        href: "#ml-recommendations",
+    },
+    {
+        id: "cs8",
+        title: "API Rate Limiting & Resilience",
+        description:
+            "Designed a tiered rate-limiting strategy with graceful degradation and retries. Protected public APIs from traffic spikes and improved overall SLA adherence.",
+        category: "Security",
+        image: "/case-studies/cs8.jpeg",
+        href: "#api-rate-limiting",
+    },
+    {
+        id: "cs9",
+        title: "Internationalization at Scale",
+        description:
+            "Launched multilingual support and locale-aware formatting across web and mobile. Reduced localization cycle time and improved global conversion rates.",
+        category: "Product",
+        image: "/case-studies/cs9.png",
+        href: "#internationalization",
     },
 ];
 const categories = ["All", ...Array.from(new Set(caseStudies.map((b) => b.category)))];
@@ -92,6 +92,12 @@ const categories = ["All", ...Array.from(new Set(caseStudies.map((b) => b.catego
 export default function CaseStudies() {
     const sectionRef = useRef<HTMLElement | null>(null);
     const [visibleCount, setVisibleCount] = useState<number>(6);
+    const [selectedCategory, setSelectedCategory] = useState<string>("All");
+
+    // Filtered list based on selection
+    const filtered = selectedCategory === "All" ? caseStudies : caseStudies.filter((c) => c.category === selectedCategory);
+    const visibleCaseStudies = filtered.slice(0, visibleCount);
+    const hasMore = visibleCount < filtered.length;
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -117,9 +123,8 @@ export default function CaseStudies() {
         return () => observer.disconnect();
     }, []);
 
-    // optional: when more items are shown, run fade-in on newly revealed cards
+    // run fade-in on newly revealed cards
     useEffect(() => {
-        // small delay to let DOM update
         const t = setTimeout(() => {
             const el = sectionRef.current;
             if (!el) return;
@@ -129,13 +134,16 @@ export default function CaseStudies() {
             });
         }, 50);
         return () => clearTimeout(t);
-    }, [visibleCount]);
+    }, [visibleCount, selectedCategory]);
 
-    const showMore = () => setVisibleCount(caseStudies.length);
+    // reset visible count when category changes
+    useEffect(() => {
+        setVisibleCount(6);
+    }, [selectedCategory]);
+
+    const showMore = () => setVisibleCount(filtered.length);
     const showLess = () => setVisibleCount(6);
 
-    const visibleCaseStudies = caseStudies.slice(0, visibleCount);
-    const hasMore = visibleCount < caseStudies.length;
     return (
         <section id="caseStudies" ref={sectionRef} className="pb-16 px-4 sm:px-6 lg:px-8">
             <div className="relative max-w-7xl mx-auto flex  flex-col items-center">
@@ -150,13 +158,17 @@ export default function CaseStudies() {
                                             id={id}
                                             name="blog-category"
                                             type="radio"
-                                            defaultChecked={idx === 0}
+                                            value={cat}
+                                            checked={selectedCategory === cat}
+                                            onChange={() => setSelectedCategory(cat)}
                                             className="sr-only cat-input"
                                         />
                                         <label
                                             htmlFor={id}
-                                            className="cursor-pointer select-none px-6 py-2 text-md md:text-base rounded-full text-white/80 transition-all duration-200 flex items-center gap-2"
-                                            aria-pressed={idx === 0}
+                                            className={`cursor-pointer select-none px-6 py-2 text-md md:text-base rounded-full transition-all duration-200 flex items-center gap-2 ${
+                                                selectedCategory === cat ? "text-white" : "text-white/80"
+                                            }`}
+                                            aria-pressed={selectedCategory === cat}
                                         >
                                             {cat}
                                         </label>
@@ -209,14 +221,14 @@ export default function CaseStudies() {
                                     <p className="text-white/80 text-sm md:text-base mb-4 leading-relaxed">
                                         {p.description}
                                     </p>
-                                    <a
-                                        href={p.href}
+                                    <Link
+                                        href={`/resources/case-studies/${p.id}`}
                                         className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium text-white border border-white/10 bg-white/3 hover:bg-white/6 transition"
                                         aria-label={`Learn more about ${p.title}`}
                                     >
                                         Learn more
                                         <ArrowRight className="w-4 h-4 opacity-90" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </article>
                         ))}
@@ -228,7 +240,7 @@ export default function CaseStudies() {
                         <button
                             onClick={showMore}
                             className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/6 hover:bg-white/8 text-white font-medium px-6 py-2 rounded-full flex items-center cursor-pointer"
-                            aria-label="Load more blogs"
+                            aria-label="Load more case studies"
                         >
                             <span className="mr-2">Load more</span>
                         </button>
@@ -236,7 +248,7 @@ export default function CaseStudies() {
                         <button
                             onClick={showLess}
                             className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/6 hover:bg-white/8 text-white font-medium px-6 py-2 rounded-full flex items-center cursor-pointer"
-                            aria-label="Show less blogs"
+                            aria-label="Show less case studies"
                         >
                             Show less
                         </button>

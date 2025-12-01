@@ -41,7 +41,7 @@ export default function Project() {
           <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-2xl md:text-3xl lg:text-4xl font-light text-white mb-4 tracking-tight text-balance">
             <span className="font-medium">About Client</span>
           </h2>
-          <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-6xl mx-auto leading-relaxed">
+          <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-lg text-white/70 max-w-6xl mx-auto leading-relaxed">
             Our client, a leading provider of software and payroll SaaS,
             specialises in delivering comprehensive production accounting
             solutions. With a strong focus on efficiency, reliability, and
@@ -63,7 +63,7 @@ export default function Project() {
           <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-2xl md:text-3xl lg:text-4xl font-light text-white mb-4 tracking-tight text-balance">
             <span className="font-medium">Problem Statement</span>
           </h2>
-          <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-6xl mx-auto leading-relaxed">
+          <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-lg text-white/70 max-w-6xl mx-auto leading-relaxed">
             Film budgeting is the cost agreed upon by financers and producers to
             secure the amount that goes into the production of a film. Likewise,
             due to the intricacies of film production, budgeting is broken down
@@ -85,7 +85,7 @@ export default function Project() {
           <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-2xl md:text-3xl lg:text-4xl font-light text-white mb-4 tracking-tight text-balance">
             <span className="font-medium">Our Solution</span>
           </h2>
-          <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-6xl mx-auto leading-relaxed">
+          <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-lg text-white/70 max-w-6xl mx-auto leading-relaxed">
             In addressing the challenges faced by our team, we at Swivel Tech
             adopted a strategic approach that involved careful analysis,
             collaborative decision-making, and iterative system design. Notable
@@ -150,7 +150,7 @@ export default function Project() {
           <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-2xl md:text-3xl lg:text-4xl font-light text-white mb-4 tracking-tight text-balance">
             <span className="font-medium">Results and Outcomes</span>
           </h2>
-          <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-6xl mx-auto leading-relaxed">
+          <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-lg text-white/70 max-w-6xl mx-auto leading-relaxed">
             Creating a pivot table-based budgeting system has been a tough
             learning curve with many achievements. The team reduced the time
             taken for calculations up to 3 seconds or less even when handling
@@ -194,7 +194,7 @@ export default function Project() {
           <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-2xl md:text-3xl lg:text-4xl font-light text-white mb-4 tracking-tight text-balance">
             <span className="font-medium">Technologies</span>
           </h2>
-          <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-6xl mx-auto leading-relaxed">
+          <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-lg text-white/70 max-w-6xl mx-auto leading-relaxed">
             ReactJS | HandsonTable | HyperFormula | Web Workers 
           </p>
         </div>
