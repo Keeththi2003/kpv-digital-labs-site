@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-
 const caseStudies = [
     {
         id: "cs1",
@@ -93,6 +92,12 @@ const categories = ["All", ...Array.from(new Set(caseStudies.map((b) => b.catego
 export default function CaseStudies() {
     const sectionRef = useRef<HTMLElement | null>(null);
     const [visibleCount, setVisibleCount] = useState<number>(6);
+    const [selectedCategory, setSelectedCategory] = useState<string>("All");
+
+    // Filtered list based on selection
+    const filtered = selectedCategory === "All" ? caseStudies : caseStudies.filter((c) => c.category === selectedCategory);
+    const visibleCaseStudies = filtered.slice(0, visibleCount);
+    const hasMore = visibleCount < filtered.length;
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -118,9 +123,8 @@ export default function CaseStudies() {
         return () => observer.disconnect();
     }, []);
 
-    // optional: when more items are shown, run fade-in on newly revealed cards
+    // run fade-in on newly revealed cards
     useEffect(() => {
-        // small delay to let DOM update
         const t = setTimeout(() => {
             const el = sectionRef.current;
             if (!el) return;
@@ -130,13 +134,16 @@ export default function CaseStudies() {
             });
         }, 50);
         return () => clearTimeout(t);
-    }, [visibleCount]);
+    }, [visibleCount, selectedCategory]);
 
-    const showMore = () => setVisibleCount(caseStudies.length);
+    // reset visible count when category changes
+    useEffect(() => {
+        setVisibleCount(6);
+    }, [selectedCategory]);
+
+    const showMore = () => setVisibleCount(filtered.length);
     const showLess = () => setVisibleCount(6);
 
-    const visibleCaseStudies = caseStudies.slice(0, visibleCount);
-    const hasMore = visibleCount < caseStudies.length;
     return (
         <section id="caseStudies" ref={sectionRef} className="pb-16 px-4 sm:px-6 lg:px-8">
             <div className="relative max-w-7xl mx-auto flex  flex-col items-center">
@@ -151,13 +158,17 @@ export default function CaseStudies() {
                                             id={id}
                                             name="blog-category"
                                             type="radio"
-                                            defaultChecked={idx === 0}
+                                            value={cat}
+                                            checked={selectedCategory === cat}
+                                            onChange={() => setSelectedCategory(cat)}
                                             className="sr-only cat-input"
                                         />
                                         <label
                                             htmlFor={id}
-                                            className="cursor-pointer select-none px-6 py-2 text-md md:text-base rounded-full text-white/80 transition-all duration-200 flex items-center gap-2"
-                                            aria-pressed={idx === 0}
+                                            className={`cursor-pointer select-none px-6 py-2 text-md md:text-base rounded-full transition-all duration-200 flex items-center gap-2 ${
+                                                selectedCategory === cat ? "text-white" : "text-white/80"
+                                            }`}
+                                            aria-pressed={selectedCategory === cat}
                                         >
                                             {cat}
                                         </label>
@@ -229,7 +240,7 @@ export default function CaseStudies() {
                         <button
                             onClick={showMore}
                             className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/6 hover:bg-white/8 text-white font-medium px-6 py-2 rounded-full flex items-center cursor-pointer"
-                            aria-label="Load more blogs"
+                            aria-label="Load more case studies"
                         >
                             <span className="mr-2">Load more</span>
                         </button>
@@ -237,7 +248,7 @@ export default function CaseStudies() {
                         <button
                             onClick={showLess}
                             className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/6 hover:bg-white/8 text-white font-medium px-6 py-2 rounded-full flex items-center cursor-pointer"
-                            aria-label="Show less blogs"
+                            aria-label="Show less case studies"
                         >
                             Show less
                         </button>
