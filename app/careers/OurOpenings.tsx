@@ -4,173 +4,205 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-const vaccancies = [
-    {
-        role: "Software Engineer Intern",
-        location: "remote",
-        skills: ["React", "Java", "Tailwind"],
-        color: "from-yellow-400 to-orange-500",
-        disc: "Work with mentors on real product features: implement UI components, write tests, and contribute to backend services. Great for learning full‑stack engineering practices.",
-        href: "#",
-        icon: (
-            <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-6 h-6"
-            >
-                <rect x="3" y="4" width="18" height="14" rx="2"></rect>
-                <path d="M8 20h8"></path>
-                <path d="M9 8h6"></path>
-            </svg>
-        ),
-    },
-    {
-        role: "Frontend Engineer",
-        location: "hybrid (NYC)",
-        skills: ["React", "TypeScript", "CSS", "Next.js"],
-        color: "from-sky-400 to-indigo-500",
-        disc: "Design and implement performant, accessible user interfaces. Collaborate with product and design to ship pixel‑perfect UIs and optimize client rendering and bundle size.",
-        href: "#",
-        icon: (
-            <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-6 h-6"
-            >
-                <path d="M3 7h18"></path>
-                <rect x="3" y="7" width="18" height="13" rx="2"></rect>
-                <path d="M7 3v4"></path>
-                <path d="M17 3v4"></path>
-            </svg>
-        ),
-    },
-    {
-        role: "Backend Engineer",
-        location: "remote",
-        skills: ["Node.js", "Postgres", "API design", "Docker"],
-        color: "from-indigo-500 to-violet-500",
-        disc: "Build scalable APIs and services, design data models, and optimize queries. Ownership of reliability, performance, and backend architecture decisions.",
-        href: "#",
-        icon: (
-            <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-6 h-6"
-            >
-                <path d="M12 2v6"></path>
-                <path d="M6 8v6a6 6 0 0012 0V8"></path>
-                <rect x="3" y="8" width="18" height="8" rx="2"></rect>
-            </svg>
-        ),
-    },
-    {
-        role: "DevOps Engineer",
-        location: "onsite (London)",
-        skills: ["Kubernetes", "Terraform", "CI/CD", "AWS"],
-        color: "from-emerald-400 to-teal-600",
-        disc: "Manage cloud infrastructure, automate deployments, and improve observability. Drive SRE practices to reduce incidents and improve recovery time.",
-        href: "#",
-        icon: (
-            <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-6 h-6"
-            >
-                <path d="M12 2v4"></path>
-                <path d="M12 18v4"></path>
-                <path d="M4.9 4.9l2.8 2.8"></path>
-                <path d="M16.3 16.3l2.8 2.8"></path>
-                <path d="M2 12h4"></path>
-                <path d="M18 12h4"></path>
-                <path d="M4.9 19.1l2.8-2.8"></path>
-                <path d="M16.3 7.7l2.8-2.8"></path>
-            </svg>
-        ),
-    },
-    {
-        role: "Product Designer",
-        location: "remote",
-        skills: ["Figma", "UX research", "Prototyping"],
-        color: "from-pink-400 to-rose-500",
-        disc: "Lead user research, craft interaction patterns, and produce high‑fidelity prototypes. Work closely with engineers to ensure designs are feasible and consistent.",
-        href: "#",
-        icon: (
-            <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-6 h-6"
-            >
-                <path d="M3 21l3-3 4 4 11-11a4 4 0 00-5.657-5.657L5 16l-2 5z"></path>
-            </svg>
-        ),
-    },
-    {
-        role: "Data Scientist",
-        location: "hybrid (Berlin)",
-        skills: ["Python", "Pandas", "ML", "SQL"],
-        color: "from-cyan-400 to-sky-600",
-        disc: "Analyze product and usage data, build predictive models, and work with teams to turn insights into measurable product improvements.",
-        href: "#",
-        icon: (
-            <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-6 h-6"
-            >
-                <circle cx="12" cy="8" r="3"></circle>
-                <path d="M19 21v-6"></path>
-                <path d="M5 21v-4"></path>
-                <path d="M12 11v10"></path>
-            </svg>
-        ),
-    },
-    {
-        role: "QA Engineer",
-        location: "remote",
-        skills: ["Testing", "Cypress", "Automation", "TDD"],
-        color: "from-lime-400 to-green-600",
-        disc: "Create test strategies, implement automated test suites, and help maintain high quality across releases through strong testing discipline and CI integration.",
-        href: "#",
-        icon: (
-            <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-6 h-6"
-            >
-                <path d="M20 6L9 17l-5-5"></path>
-                <rect x="2" y="3" width="20" height="18" rx="2"></rect>
-            </svg>
-        ),
-    },
+const vacancies = [
+  {
+    id: "intern-1",
+    role: "Software Engineer Intern",
+    title: "Software Engineer Intern",
+    location: "Remote",
+    type: "Internship",
+    team: "Engineering",
+    skills: ["React", "Java", "Tailwind"],
+    color: "from-yellow-400 to-orange-500",
+    disc: "Work with mentors on real product features: implement UI components, write tests, and contribute to backend services. Great for learning full-stack engineering practices.",
+    summary:
+      "Work with senior engineers to ship real product features and learn full-stack engineering best practices.",
+    responsibilities: [
+      "Build and test UI components",
+      "Assist backend tasks and debugging",
+      "Collaborate with mentors on feature delivery",
+    ],
+    qualifications: [
+      "Basic knowledge of React or Java",
+      "Eager to learn full-stack development",
+      "Good problem-solving skills",
+    ],
+    href: "#",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <rect x="3" y="4" width="18" height="14" rx="2"></rect>
+        <path d="M8 20h8"></path>
+        <path d="M9 8h6"></path>
+      </svg>
+    ),
+  },
+
+  {
+    id: "frontend-1",
+    role: "Frontend Engineer",
+    title: "Frontend Engineer",
+    location: "Remote / Hybrid (NYC)",
+    type: "Full-time",
+    team: "Product",
+    skills: ["React", "TypeScript", "CSS", "Next.js"],
+    color: "from-sky-400 to-indigo-500",
+    disc: "Design and implement performant, accessible user interfaces. Collaborate with product and design to ship pixel-perfect UIs and optimize client rendering and bundle size.",
+    summary:
+      "Build delightful user experiences using modern React. Own features from design to production.",
+    responsibilities: [
+      "Ship pixel-perfect UI components",
+      "Collaborate with designers & backend",
+      "Write tests and document APIs",
+    ],
+    qualifications: [
+      "3+ years React/TypeScript",
+      "Familiar with Next.js or similar frameworks",
+      "Strong communication skills",
+    ],
+    href: "#",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M3 7h18"></path>
+        <rect x="3" y="7" width="18" height="13" rx="2"></rect>
+        <path d="M7 3v4"></path>
+        <path d="M17 3v4"></path>
+      </svg>
+    ),
+  },
+
+  {
+    id: "backend-1",
+    role: "Backend Engineer",
+    title: "Backend Engineer",
+    location: "Remote / NYC",
+    type: "Full-time",
+    team: "Infrastructure",
+    skills: ["Node.js", "Postgres", "API design", "Docker"],
+    color: "from-indigo-500 to-violet-500",
+    disc: "Build scalable APIs and services, design data models, and optimize queries. Ownership of reliability, performance, and backend architecture decisions.",
+    summary:
+      "Design scalable services and take ownership of backend components, APIs, and data models.",
+    responsibilities: [
+      "Design & implement APIs",
+      "Optimize performance and reliability",
+      "Work on data modeling and infrastructure",
+    ],
+    qualifications: [
+      "3+ years Node.js/TypeScript",
+      "Database experience",
+      "Interest in distributed systems",
+    ],
+    href: "#",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M12 2v6"></path>
+        <path d="M6 8v6a6 6 0 0012 0V8"></path>
+        <rect x="3" y="8" width="18" height="8" rx="2"></rect>
+      </svg>
+    ),
+  },
+
+  {
+    id: "devops-1",
+    role: "DevOps Engineer",
+    title: "DevOps Engineer",
+    location: "Onsite (London)",
+    type: "Full-time",
+    team: "SRE / Infrastructure",
+    skills: ["Kubernetes", "Terraform", "CI/CD", "AWS"],
+    color: "from-emerald-400 to-teal-600",
+    disc: "Manage cloud infrastructure, automate deployments, and improve observability. Drive SRE practices to reduce incidents and improve recovery time.",
+    summary:
+      "Lead infrastructure automation, observability improvements, and SRE practices.",
+    responsibilities: [
+      "Manage CI/CD and cloud infra",
+      "Automate deployments",
+      "Improve monitoring and incident response",
+    ],
+    qualifications: [
+      "Experience with AWS & Kubernetes",
+      "Strong Terraform & CI/CD knowledge",
+      "Understanding of SRE principles",
+    ],
+    href: "#",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M12 2v4"></path>
+        <path d="M12 18v4"></path>
+        <path d="M4.9 4.9l2.8 2.8"></path>
+        <path d="M16.3 16.3l2.8 2.8"></path>
+        <path d="M2 12h4"></path>
+        <path d="M18 12h4"></path>
+        <path d="M4.9 19.1l2.8-2.8"></path>
+        <path d="M16.3 7.7l2.8-2.8"></path>
+      </svg>
+    ),
+  },
+
+  {
+    id: "design-1",
+    role: "Product Designer",
+    title: "Product Designer",
+    location: "Remote",
+    type: "Full-time",
+    team: "Design",
+    skills: ["Figma", "UX research", "Prototyping"],
+    color: "from-pink-400 to-rose-500",
+    disc: "Lead user research, craft interaction patterns, and produce high-fidelity prototypes. Work closely with engineers to ensure designs are feasible and consistent.",
+    summary:
+      "Own research, experience design, and rapid prototyping for product teams.",
+    responsibilities: [
+      "Create high-fidelity prototypes",
+      "Conduct UX research & testing",
+      "Work closely with engineering",
+    ],
+    qualifications: [
+      "Strong product design portfolio",
+      "Experience with Figma",
+      "Good UX research understanding",
+    ],
+    href: "#",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M3 21l3-3 4 4 11-11a4 4 0 00-5.657-5.657L5 16l-2 5z"></path>
+      </svg>
+    ),
+  },
+
+  {
+    id: "data-1",
+    role: "Data Scientist",
+    title: "Data Scientist",
+    location: "Hybrid (Berlin)",
+    type: "Full-time",
+    team: "Data",
+    skills: ["Python", "Pandas", "ML", "SQL"],
+    color: "from-cyan-400 to-sky-600",
+    disc: "Analyze product and usage data, build predictive models, and work with teams to turn insights into measurable product improvements.",
+    summary:
+      "Analyze data, build ML models, and help drive product decisions with insights.",
+    responsibilities: [
+      "Analyze datasets & create reports",
+      "Build predictive models",
+      "Collaborate with product & engineering",
+    ],
+    qualifications: [
+      "Experience with ML & Python",
+      "Strong SQL knowledge",
+      "Ability to present insights clearly",
+    ],
+    href: "#",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <circle cx="12" cy="8" r="3"></circle>
+        <path d="M19 21v-6"></path>
+        <path d="M5 21v-4"></path>
+        <path d="M12 11v10"></path>
+      </svg>
+    ),
+  },
 ];
+
 
 export default function OurOpenings() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -281,7 +313,7 @@ export default function OurOpenings() {
             }}
           >
             <option value="" className="bg-background">All locations</option>
-            {Array.from(new Set(vaccancies.map((v) => v.location))).map((loc) => (
+            {Array.from(new Set(vacancies.map((v) => v.location))).map((loc) => (
               <option key={loc} value={loc} className="bg-background rounded-md hover:bg-white/20">
                 {loc}
               </option>
@@ -294,29 +326,29 @@ export default function OurOpenings() {
       </div>
       <div className="max-w-5xl  mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8 ">
-        {vaccancies.map((vaccancie, index) => (
+        {vacancies.map((vacancie, index) => (
         <article
           key={index}
           className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out bg-white/3 rounded-xl p-6 border border-white/5"
         >
           <div className="flex items-center gap-4">
              <div className="flex-none w-16 h-16 rounded-full overflow-hidden relative ">
-              <div className={`w-full h-full rounded-full bg-linear-to-br ${vaccancie.color} flex items-center justify-center shadow-md`}>
-                {vaccancie.icon}
+              <div className={`w-full h-full rounded-full bg-linear-to-br ${vacancie.color} flex items-center justify-center shadow-md`}>
+                {vacancie.icon}
               </div>
             </div>
             <div>
             <h3 className="text-xl font-semibold text-white">
-              {vaccancie.role}
+              {vacancie.role}
             </h3>
-            <p className="text-sm text-white/70">{vaccancie.location}</p>
+            <p className="text-sm text-white/70">{vacancie.location}</p>
             </div>
           </div>
           <p className="mt-4 text-white/70 leading-relaxed">
-            {vaccancie.disc}
+            {vacancie.disc}
           </p>
           <ul className="mt-4 flex flex-wrap gap-2">
-            {vaccancie.skills.map((skill) => (
+            {vacancie.skills.map((skill) => (
             <li className="text-xs px-2 py-1 bg-white/5 rounded text-white/80">
               {skill}
             </li>
@@ -326,7 +358,7 @@ export default function OurOpenings() {
 
           <div className="mt-4">
                             <Link
-                              href={vaccancie.href}
+                              href={`/careers/opening/${vacancie.id}`}
                               className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium text-white border border-white/10 bg-white/3 hover:bg-white/6 transition"
                             >
                               Learn more
