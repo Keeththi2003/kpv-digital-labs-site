@@ -4,14 +4,6 @@ import { Hero } from "./Hero";
 import { useParams } from "next/navigation";
 
 
-type Project = {
-    id: string;
-    title: string;
-    description: string;
-    image: string;
-    href: string;
-};
-
 const blogs = [
     {
         id: "b1",
