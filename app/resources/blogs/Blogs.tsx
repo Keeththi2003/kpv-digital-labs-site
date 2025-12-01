@@ -91,7 +91,16 @@ const categories = ["All", ...Array.from(new Set(blogs.map((b) => b.category)))]
 
 export default function Blogs() {
     const sectionRef = useRef<HTMLElement | null>(null);
-    const [visibleCount, setVisibleCount] = useState<number>(6);
+   const [visibleCount, setVisibleCount] = useState<number>(6);
+       const [selectedCategory, setSelectedCategory] = useState<string>("All");
+   
+
+           // Filtered list based on selection
+    const filtered = selectedCategory === "All" ? blogs : blogs.filter((c) => c.category === selectedCategory);
+    const visibleBlogs = filtered.slice(0, visibleCount);
+    const hasMore = visibleCount < filtered.length;
+
+    
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -117,9 +126,8 @@ export default function Blogs() {
         return () => observer.disconnect();
     }, []);
 
-    // optional: when more items are shown, run fade-in on newly revealed cards
+   // run fade-in on newly revealed cards
     useEffect(() => {
-        // small delay to let DOM update
         const t = setTimeout(() => {
             const el = sectionRef.current;
             if (!el) return;
@@ -129,13 +137,17 @@ export default function Blogs() {
             });
         }, 50);
         return () => clearTimeout(t);
-    }, [visibleCount]);
+    }, [visibleCount, selectedCategory]);
 
-    const showMore = () => setVisibleCount(blogs.length);
+    // reset visible count when category changes
+    useEffect(() => {
+        setVisibleCount(6);
+    }, [selectedCategory]);
+
+    const showMore = () => setVisibleCount(filtered.length);
     const showLess = () => setVisibleCount(6);
 
-    const visibleBlogs = blogs.slice(0, visibleCount);
-    const hasMore = visibleCount < blogs.length;
+
 
     return (
         <section id="blogs" ref={sectionRef} className="pb-16 px-4 sm:px-6 lg:px-8">
@@ -151,7 +163,9 @@ export default function Blogs() {
                                             id={id}
                                             name="blog-category"
                                             type="radio"
-                                            defaultChecked={idx === 0}
+                                            value={cat}
+                                            checked={selectedCategory === cat}
+                                            onChange={() => setSelectedCategory(cat)}
                                             className="sr-only cat-input"
                                         />
                                         <label
