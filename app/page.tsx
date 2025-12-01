@@ -1,4 +1,4 @@
-import Image from "next/image";
+"use client";
 import { HeroSection } from "./components/home/hero";
 import { TechStack } from "./components/home/TechStack";
 import { CTASection } from "./components/CTASection";
